@@ -1,8 +1,10 @@
 import React from 'react';
+import classes from './App.scss';
 
 function App() {
   return (
-    <div className="App">
+    <div className={classes.button}>
+      hello
     </div>
   );
 }
