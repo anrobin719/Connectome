@@ -1,12 +1,15 @@
 @import './styles/lib/utils.scss';
 
 // initialize style
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
 body, h1, h2, h3, h4, h5, h6, p, blockquote {
     margin: 0;
     padding: 0;
     font-size: inherit;
     font-weight: inherit;
-    font-family: 'Noto Sans KR', sans-serif;
     color: $oc-gray-8;
 }
 
