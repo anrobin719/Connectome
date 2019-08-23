@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
+import { NavLink } from 'react-router-dom';
 
 import styles from './Toolbar.scss';
 import NavigationItems from '../Navigation/NavigationItems/NavigationItems';
@@ -11,9 +12,9 @@ const Toolbar = () => {
     return (
         <header className={cx('Toolbar')}>
             <div className={cx('content')}>
-                <div className={cx('logo')}>
+                <NavLink activeClassName={cx('logo')} to="/">
                     ⎈ connectome
-                </div>
+                </NavLink>
                 
                 <div className={cx('search')}>
                     <div className={cx('searchIcon')}>

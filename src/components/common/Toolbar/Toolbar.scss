@@ -6,17 +6,23 @@
     position: fixed;
     top: 0;
     left: 0;
+    background-color: white;
     border-bottom: 1px solid $oc-gray-3;
     color: $c-primary;
     padding: 0 32px;
     box-sizing: border-box;
-    z-index: 90;
+    z-index: 100;
     
     .content {
         height: 100%;
         display: flex;
         align-items: center;
         font-size: 1.2rem;
+
+        // logo
+        a {
+            color: $c-primary;
+        }
 
         .search {
             position: relative;

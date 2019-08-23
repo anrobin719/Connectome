@@ -1,0 +1,32 @@
+@import '../../../../styles/lib/utils.scss';
+
+.TagCard {
+    display: flex;
+    flex: .23;
+    height: 80px;
+    border-radius: .2rem;
+    transition: all .1s ease-in-out;
+    @include material-shadow(1, 1, $oc-gray-6);
+    &:hover,
+    &:active {
+        @include material-shadow(2, 1, $oc-gray-6);        
+    }
+
+    .TagImgBox {
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        img {
+            object-fit: cover;
+        }
+    }
+
+    span {
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: $oc-gray-8;
+    }
+}

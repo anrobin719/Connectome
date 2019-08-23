@@ -1,3 +1,5 @@
 .LayoutMain {
-    min-height: 100vh;
+    min-height: calc(100vh - 64px);
+    margin-top: 64px;
+    background-color: white;
 }

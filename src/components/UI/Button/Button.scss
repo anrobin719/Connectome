@@ -8,23 +8,41 @@
     cursor: pointer;
     user-select: none;
     display: inline-flex;
-    text-decoration: none;
-    margin: 0 .6rem;
     transition: all .2s linear;
 
     // outline theme
     &.outline {
         border: 1px solid $c-primary;
-        border-radius: 2px;
+        border-radius: .16rem;
+        margin: 0 .6rem;
         &:hover,
         &:active {
-            background-color: rgba($c-primary,0.1);
+            background-color: rgba($c-primary-light, .2);
         }
     }
 
-    // reverse theme
-    &.reverse {
-        background-color: $oc-blue-6;
-        border-radius: 2px;
+    // point theme
+    &.point {
+        background-color: $c-secondary;
+        border-radius: .16rem;
+        color: white;
+        margin: 0 .6rem;
+        &:hover,
+        &:active {
+            background-color: $c-secondary-light;
+        }
+
+        &-big {
+            background-color: $c-secondary;
+            border-radius: .2rem;
+            color: white;
+            font-size: 1rem;
+            font-weight: 400;
+            padding: .6rem 2rem;
+            &:hover,
+            &:active {
+                background-color: $c-secondary-light;
+            }
+        }
     }
 }

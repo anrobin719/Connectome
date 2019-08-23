@@ -3,20 +3,21 @@ import { Switch, Route } from 'react-router-dom';
 
 import './App.scss';
 import Layout from './hoc/Layout/Layout';
-import { HomePage, ListPage, PostPage, EditPage, AuthPage, NotFoundPage } from './pages';
+import { ListPage, PostPage, EditPage, AuthPage, NotFoundPage } from './pages';
+import HomePage from './pages/HomePage';
 
 class App extends Component {
   render() {
     return (
       <Layout>
         <Switch>
-          <Route exact path="/" Component={HomePage} />
-          <Route path="/page/:page" Component={ListPage} />
-          <Route path="/tag/:tag/:page?" Component={ListPage} />
-          <Route path="/post/:id" Component={PostPage} />
-          <Route path="/edit" Component={EditPage} />
-          <Route path="/auth" Component={AuthPage} />
-          <Route Component={NotFoundPage} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/page/:page" component={ListPage} />
+          <Route path="/tag/:tag/:page?" component={ListPage} />
+          <Route path="/post/:id" component={PostPage} />
+          <Route path="/edit" component={EditPage} />
+          <Route path="/auth" component={AuthPage} />
+          <Route component={NotFoundPage} />
         </Switch>
       </Layout>
     );
