@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import SearchBanner from '../components/list/SearchBanner/SearchBanner';
 
 const ListPage = () => {
     return (
-        <div>
+        <Fragment>
+            <SearchBanner />
             list page
-        </div>
+        </Fragment>
     );
 };
 

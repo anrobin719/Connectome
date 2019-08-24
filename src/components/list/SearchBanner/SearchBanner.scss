@@ -1,0 +1,79 @@
+@import '../../../styles/lib/utils.scss';
+
+.SearchBanner {
+    height: 260px;
+    
+    .searchBox {
+        height: 100%;
+        border-bottom: 1px solid $oc-gray-4;
+
+        .searchBoxForm {
+            position: relative;
+            top: 5rem;
+            
+            .inputBox {
+                display: flex;
+                flex: 1;           
+                .input {
+                    display: flex;
+                    flex-direction: column;
+                    flex: .5;
+                    input {
+                        height: 3rem;
+                        width: 100%;
+                        margin: 0;
+                        padding: 0;
+                        padding-left: 1rem;
+                        box-sizing: border-box;
+                        font-size: 1rem;
+                        font-weight: 300;
+                        border: 1px solid $oc-gray-2;
+                        &::placeholder {
+                            font-size: 1rem;
+                            font-weight: 300;
+                            color: $oc-gray-6;
+                        }
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+                .betweenInput {
+                    display: flex;
+                    flex-direction: column;
+                    .switchBtn {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: 1px solid $oc-gray-2;
+                        height: 3rem;
+                        box-sizing: border-box;
+                    }
+                }
+                .input,
+                .betweenInput {
+                    label {
+                        font-size: .8rem;
+                        font-weight: 600;
+                        padding-left: 1rem;
+                        margin-bottom: .3rem;
+                    }
+                }
+            }
+
+            .btnBox {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 1rem;
+                .searchIcon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: .2rem;
+                    margin-top: .1rem;
+                }
+            }
+
+        }
+    }
+}
