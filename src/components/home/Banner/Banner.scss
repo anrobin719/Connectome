@@ -7,16 +7,20 @@
     background-position: bottom;
     background-size: cover;
 
-    div {
-        color: white;
-        font-size: 2.6rem;
-        font-weight: 700;
-        position: relative;
-        top: 3.6rem;
-        h2 {
-            line-height: 3.4rem;
-            margin-bottom: 8px;
-            color: white;
+    .bannerContentBox {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .bannerContent {
+            width: 100%;
+            h2 {
+                margin-bottom: 1rem;
+                color: white;
+                font-size: 2.6rem;
+                font-weight: 700;
+                line-height: 3.4rem;
+            }
         }
     }
 }

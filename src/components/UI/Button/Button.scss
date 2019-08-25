@@ -41,6 +41,14 @@
             background-color: transparent;
             color: white;
         }
+        &-big {
+            border: 1px solid white;
+            border-radius: .2rem;
+            color: white;
+            font-size: 1rem;
+            font-weight: 400;
+            padding: .6rem 2rem .8rem;
+        }
     }
 
     // primary theme
@@ -62,7 +70,7 @@
             background-color: $c-primary;
             border-radius: .16rem;
             color: white;
-            padding: .6rem 1rem .8rem;
+            padding: .6rem 1rem;
             &:hover,
             &:active {
                 background-color: $c-primary-light;
@@ -100,7 +108,7 @@
             color: white;
             font-size: 1rem;
             font-weight: 400;
-            padding: .6rem 2rem;
+            padding: .6rem 2rem .8rem;
             &:hover,
             &:active {
                 background-color: $c-secondary-light;

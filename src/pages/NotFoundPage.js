@@ -18,19 +18,17 @@ const NotFoundPage = () => {
             {/* <ThemeProvider theme={theme}> */}
                 <Banner>
                     <PageWrapper>
-                        <BannerContents>
-                            <BannerError>404 ERROR</BannerError>
-                            죄송합니다. 요청하신 페이지를 찾을 수 없습니다.
-                            <ButtonDiv>
-                                <Button theme="outline-white">홈으로 돌아가기</Button>
-                            </ButtonDiv>
-                        </BannerContents>
+                        <ContentsBox>
+                            <Contents>
+                                <ErrorText>404 ERROR</ErrorText>
+                                죄송합니다. 요청하신 페이지를 찾을 수 없습니다.
+                                <ButtonDiv>
+                                    <Button to="/" extraStyle={{height: '2.8rem', width: 'rem'}} theme="outline-white-big">홈으로 돌아가기</Button>
+                                </ButtonDiv>
+                            </Contents>
+                        </ContentsBox>
                     </PageWrapper>
                 </Banner>
-
-                <PageWrapper>
-                    
-                </PageWrapper>
             {/* </ThemeProvider> */}
         </Fragment>
     );
@@ -41,18 +39,24 @@ const Banner = styled.div`
     width: 100%;
     background-color: #353470;
     color: white;
-    position: relative;
 `;
 
-const BannerContents = styled.div`
-    position: absolute;
-    top: 10.6rem;
+const ContentsBox = styled.div`
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Contents = styled.div`
+    width: 100%;
     font-size: 2rem;
     font-weight: 300;
     box-sizing: border-box;
+    position: relative;
 `;
 
-const BannerError = styled.div`
+const ErrorText = styled.div`
     font-family: 'Lexend Deca', sans-serif;
     font-size: 4rem;
     margin-bottom: .3rem;
@@ -60,8 +64,9 @@ const BannerError = styled.div`
 
 const ButtonDiv = styled.div`
     display: inline-block;
-    box-sizing: border-box;
-    margin-left: 6rem;
+    position: absolute;
+    right: 0;
+    bottom: .1rem;
 `;
 
 
