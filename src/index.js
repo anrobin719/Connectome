@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { StylesProvider } from "@material-ui/styles";
 // import { createStore, combineReducers } from 'redux';
+import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -17,7 +18,9 @@ const app = (
     // <Provider store>
         <BrowserRouter>
             <StylesProvider injectFirst>
-                <App />
+                <ScrollToTop>
+                    <App />
+                </ScrollToTop>
             </StylesProvider>
         </BrowserRouter>
     // </Provider>

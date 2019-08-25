@@ -1,0 +1,105 @@
+@import '../../styles/lib/utils.scss';
+
+.Post {
+    padding-top: 1rem;
+
+    // head, body common style
+    .postHead,
+    .postBody {
+        display: flex;
+        justify-content: space-between;
+
+        // 왼쪽 열
+        .headImg,
+        .bodyContent {
+            display: flex;
+            flex: .78;
+            flex-direction: column;
+        }
+
+        // 오른쪽 열
+        .headContent,
+        .bodyInfo {
+            display: flex;
+            flex: .2;
+            flex-direction: column;
+        }
+    }
+
+
+    // 첫번째 행
+    .postHead {
+        .headImg {
+            height: 50vh;
+        }
+        .headContent {
+            height: 50vh;
+            border-top: 3px solid $c-primary;
+            box-sizing: border-box;
+            position: relative;
+            
+            .headContentTitleBox {
+                padding: 0 .5rem;
+                h2 {
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    margin: 2rem 0 1rem;
+                }
+                p {
+                    font-weight: 300;
+                }
+            }
+            // button
+            .headContentBtnBox {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+            }
+        }
+    }
+
+
+    // 두번째 행
+    .postBody {
+        margin-top: 1rem;
+        padding-top: 2rem;
+        padding-bottom: 12rem;
+        box-sizing: border-box;
+
+        .bodyContent {
+            h2 {
+                font-size: 2rem;
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+            p {
+                font-weight: 300;
+                margin-bottom: 1.6rem;
+            }
+            // button
+            .bodyContentBtnBox {
+                display: flex;
+                justify-content: center;
+                margin-top: 3rem;
+            }
+        }
+        // .bodyInfo {
+        //     .bodyInfoContentBox {
+        //         padding: 2rem 1rem;
+        //         background-color: $oc-gray-1;
+                
+        //         h4 {
+        //             font-weight: 300;
+        //             margin-bottom: 1.3rem;
+        //             color: $oc-gray-7;
+        //         }
+        //         p {
+        //             font-size: .8rem;
+        //             font-weight: 300;
+        //             color: $oc-gray-7;
+        //         }
+        //     }
+        // }
+    }
+    
+}

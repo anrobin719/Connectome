@@ -26,7 +26,6 @@ const CardImg = styled.div`
     width: auto;
     height: 100%;
     background: url(${props => props.img}) no-repeat center/cover;
-
 `;
 
 export default PostCard;
