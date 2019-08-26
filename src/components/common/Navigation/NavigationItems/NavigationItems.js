@@ -8,7 +8,10 @@ const NavigationItems = () => {
         <ul className={classes.NavigationItems}>
             <NavigationItem link="/page/:page" exact>재능 교환</NavigationItem>
             <NavigationItem link="/edit" exact>새글 작성</NavigationItem>
-            <Button to="/auth" theme="outline" exact>Log in</Button>
+            <NavigationItem link="" exact>로그인</NavigationItem>
+            <div className={classes.signUpBtnBox}>
+                <Button to="/auth" theme="outline" exact>회원가입</Button>
+            </div>
         </ul>
     );
 };

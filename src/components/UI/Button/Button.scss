@@ -15,7 +15,9 @@
     &.outline {
         border: 1px solid $c-primary;
         border-radius: .16rem;
-        margin: 0 .6rem;
+        font-weight: 600;
+        font-size: .8rem;
+        padding: .25rem .5rem .35rem;
         &:hover,
         &:active {
             background-color: $c-primary;
@@ -34,7 +36,6 @@
     &.outline-white {
         border: 1px solid white;
         border-radius: .16rem;
-        margin: 0 .6rem;
         color: white;
         &:hover,
         &:active {
@@ -44,6 +45,9 @@
         &-big {
             border: 1px solid white;
             border-radius: .2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
             font-size: 1rem;
             font-weight: 400;

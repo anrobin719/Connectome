@@ -13,8 +13,8 @@
     a {
         color: $oc-gray-6;
         height: 100%;
-        display: flex;
-        align-items: center;
+        padding-top: 21px;
+        box-sizing: border-box;
         &:hover,
         &:active,
         &.active {
