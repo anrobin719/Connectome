@@ -1,0 +1,81 @@
+@import '../../../styles/lib/utils.scss';
+
+.Input {
+    margin-bottom: 32px;
+}
+
+.Input label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+
+
+/* INPUT TEXT, EMAIL, PASSWORD.. */
+.inputTag {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    &::placeholder {
+        color: $oc-gray-6;
+        font-weight: 300;
+    }
+}
+
+.inputTag:focus {
+    color: $oc-gray-8;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
+}
+
+/* CHECK BOX */
+.checkboxTag {
+    display: inline-block;
+    margin-right: 32px;
+}
+
+.checkboxTag input {
+    margin-right: 6px;
+}
+
+
+/* TEXT AREA */
+.textareaTag {
+    display: block;
+    width: 100%;
+    height: calc((1.5em + .75rem + 2px) * 3);
+    padding: .375rem .75rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #484848;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.textareaTag:focus {
+    color: #484848;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
+}
+
+.Invalid {
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    background-color: #ff000015;
+}
