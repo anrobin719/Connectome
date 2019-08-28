@@ -29,9 +29,10 @@ export const writePostStart = () => {
     }
 }
 
-export const writePostSuccess = () => {
+export const writePostSuccess = ( postId ) => {
     return {
-        type: actionTypes.WRITE_POST_SUCCESS
+        type: actionTypes.WRITE_POST_SUCCESS,
+        postId: postId
     }
 }
 
@@ -49,7 +50,7 @@ export const writePost = ( PostData ) => {
         .then( res => {
             console.log('action: success!');
             console.log(res);
-            // dispatch( writePostSuccess(res.data) );
+            dispatch( writePostSuccess(res.data.name) );
         })
         .catch( err => {
             console.log('action: err');

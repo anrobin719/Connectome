@@ -12,8 +12,9 @@ class EditorBody extends Component {
     this.handleChange = this.handleChange.bind(this)
   }
   
-  handleChange (html) {
-    this.setState({ editorHtml: html });
+  handleChange = html => {
+    // this.setState({ editorHtml: html });
+    this.props.htmlChangedHandler({name: 'body', value: html});
   }
   
   render () {
@@ -22,7 +23,7 @@ class EditorBody extends Component {
         <ReactQuill 
           theme={this.state.theme}
           onChange={this.handleChange}
-          value={this.state.editorHtml}
+          value={this.props.body}
           modules={EditorBody.modules}
           formats={EditorBody.formats}
           placeholder={this.props.placeholder}

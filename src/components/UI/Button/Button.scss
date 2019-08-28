@@ -1,6 +1,12 @@
 @import '../../../styles/lib/utils.scss';
 
 .Button {
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: .25rem .5rem;
     box-sizing: border-box;
     font-weight: 400;
@@ -60,7 +66,7 @@
         background-color: $c-primary;
         border-radius: .16rem;
         color: white;
-        padding: .4rem 1rem .6rem;
+        padding: .4rem 1rem;
         &:hover,
         &:active {
             background-color: $c-primary-light;
@@ -100,7 +106,7 @@
         background-color: $c-secondary;
         border-radius: .16rem;
         color: white;
-        padding: .4rem 1rem .6rem;
+        padding: .6rem 1rem;
         &:hover,
         &:active {
             background-color: $c-secondary-light;
@@ -112,7 +118,7 @@
             color: white;
             font-size: 1rem;
             font-weight: 400;
-            padding: .6rem 2rem .8rem;
+            padding: .8rem 2rem;
             &:hover,
             &:active {
                 background-color: $c-secondary-light;

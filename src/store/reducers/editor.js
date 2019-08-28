@@ -33,14 +33,10 @@ const writePostStart = ( state, action ) => {
 }
 
 const writePostSuccess = ( state, action ) => {
-    console.log('dispatch: success!');
     return updateObject(state, {
-        loading: false
+        loading: false,
+        postId: action.postId
     });
-    // const { _id } = action.data
-    // return updateObject(state, {
-    //     postId: _id
-    // });
 }
 
 const writePostFail = ( state, action ) => {

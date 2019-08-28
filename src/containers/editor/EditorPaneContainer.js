@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import EditorPane from '../../components/editor/EditorPane/EditorPane';
 import * as actions from '../../store/actions/index';
@@ -27,9 +28,9 @@ class EditorPaneContainer extends Component {
             body: body,
             img: img
         };
-        
-        console.log(this.props.location);
+
         onSubmitPost(postData);
+        this.props.history.push(`/post/${this.props.postId}`);
         
     }
 
@@ -75,4 +76,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditorPaneContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(EditorPaneContainer));

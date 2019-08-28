@@ -16,6 +16,11 @@ class EditorPane extends Component {
         changeInput({name, value});
     }
 
+    htmlChangedHandler = ({name, value}) => {
+        const { changeInput } = this.props;
+        changeInput({name, value});
+    }
+
     fileSelectedHandler = (e) => { 
         e.preventDefault (); 
         const {files} = e.target; 
@@ -96,19 +101,22 @@ class EditorPane extends Component {
                     </div>
                     
                     <div className={classes.bodyBox}>
-                        <EditorBody />
+                        <EditorBody
+                            htmlChangedHandler={this.htmlChangedHandler}
+                            body={body}
+                        />
                     </div>
 
                     <div className={classes.imgBox}>
                         <div>재능 사진 업로드</div>
                         <input
-                            // style={{display: 'none'}}
+                            style={{display: 'none'}}
                             type="file"
                             name="img"
                             onChange={this.fileSelectedHandler}
-                            // ref={(ref) => this.input=ref}
+                            ref={(ref) => this.refInput=ref}
                         />
-                        {/* <button onClick={() => this.input.click()}>사진 고르기</button> */}
+                        <button type="button" onClick={() => this.refInput.click()}>사진 고르기</button>
                         <div className={classes.imgContainer}>
                             <img ref={(ref) => this.refImg=ref} alt="seleted_image" src={img} align="middle" width="100%" height="100%"/>
                         </div>
