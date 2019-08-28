@@ -15,10 +15,6 @@ class EditorBody extends Component {
   handleChange (html) {
     this.setState({ editorHtml: html });
   }
-
-  componentDidUpdate() {
-    console.log(this.state.editorHtml);
-  }
   
   render () {
     return (

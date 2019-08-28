@@ -1,0 +1,7 @@
+export const INITIALIZE = 'INITIALIZE';
+export const WRITE_POST_START = 'WRITE_POST_START';
+export const WRITE_POST_SUCCESS = 'WRITE_POST_SUCCESS';
+export const WRITE_POST_FAIL = 'WRITE_POST_FAIL';
+
+export const CHANGE_INPUT = 'CHANGE_INPUT';
+export const CHANGE_FILE = 'CHANGE_FILE';

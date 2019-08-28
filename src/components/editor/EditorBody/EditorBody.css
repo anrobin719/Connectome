@@ -1,0 +1,46 @@
+@import '~react-quill/dist/quill.core.css';
+@import '~react-quill/dist/quill.snow.css';
+@import '~react-quill/dist/quill.bubble.css';
+
+.EditorBody {
+  margin: 1rem 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  outline: none;
+}
+
+.EditorBody .ql-container {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: white;
+  font-size: 1rem;
+}
+
+/* Snow Theme */
+.EditorBody .ql-snow.ql-toolbar {
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+}
+
+
+/* toolbar color */
+.ql-snow.ql-toolbar button .ql-stroke, .ql-snow .ql-toolbar button .ql-stroke, .ql-snow.ql-toolbar button .ql-stroke, .ql-snow .ql-toolbar button .ql-stroke, .ql-snow.ql-toolbar .ql-picker-label .ql-stroke, .ql-snow .ql-toolbar .ql-picker-label .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item .ql-stroke, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-snow.ql-toolbar button .ql-stroke-miter, .ql-snow .ql-toolbar button .ql-stroke-miter, .ql-snow.ql-toolbar button .ql-stroke-miter, .ql-snow .ql-toolbar button .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-label .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-label .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item .ql-stroke-miter, .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter .ql-expanded, .ql-snow .ql-picker-options .ql-picker-item {
+  stroke: #777;
+  color: #777;
+}
+
+.ql-snow .ql-picker {
+  color: #777;
+}
+
+.ql-snow .ql-fill, .ql-snow .ql-stroke.ql-fill {
+  fill: #777;
+}
+
+.EditorBody .ql-editor {
+  height: 22em;
+}

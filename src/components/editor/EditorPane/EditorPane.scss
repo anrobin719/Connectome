@@ -10,7 +10,7 @@
         box-sizing: border-box;
         border: none;
         outline: none;
-        font-weight: 300;
+        font-weight: 400;
         color: #2c2c2c;
     }
 
@@ -19,10 +19,9 @@
         input {
             padding: 1rem;
             font-size: 2rem;
-            font-weight: 300;
             border-bottom: 1px solid #eaeaea;
             &::placeholder {
-                color: #999;
+                color: #bbb;
             }
         }
     }
@@ -34,7 +33,7 @@
             font-size: 1rem;
             border-bottom: 1px solid #eaeaea;
             &::placeholder {
-                color: #999;
+                color: #bbb;
             }
         }
     }
@@ -52,11 +51,20 @@
             font-size: 1rem;
             border-bottom: 1px solid #eaeaea;
             &::placeholder {
-                color: #999;
+                color: #bbb;
             }
         }
     }
     .imgBox {
+        .imgContainer {
+            width: 50%;
+            height: 240px;
+            background-color: #eaeaea;
+            overflow: hidden;
+            img {
+                object-fit: cover;
+            }
+        }
     }
     .btnBox {
         display: flex;

@@ -3,19 +3,22 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { StylesProvider } from "@material-ui/styles";
-// import { createStore, combineReducers } from 'redux';
-import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
+import { createStore, combineReducers } from 'redux';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
+import editorReducer from './store/reducers/editor';
 
 
-// const store = combineReducers({
+const rootReducer = combineReducers({
+    editor: editorReducer
+});
 
-// });
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const app = (
-    // <Provider store>
+    <Provider store={store}>
         <BrowserRouter>
             <StylesProvider injectFirst>
                 <ScrollToTop>
@@ -23,7 +26,7 @@ const app = (
                 </ScrollToTop>
             </StylesProvider>
         </BrowserRouter>
-    // </Provider>
+    </Provider>
 );
 
 ReactDOM.render(app, document.getElementById('root'));
