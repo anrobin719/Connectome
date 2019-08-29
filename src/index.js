@@ -10,10 +10,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
 import editorReducer from './store/reducers/editor';
+import postReducer from './store/reducers/post';
 
 
 const rootReducer = combineReducers({
-    editor: editorReducer
+    editor: editorReducer,
+    post: postReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
