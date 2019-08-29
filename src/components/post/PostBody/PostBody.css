@@ -1,0 +1,10 @@
+@import '~react-quill/dist/quill.core.css';
+@import '~react-quill/dist/quill.snow.css';
+
+.ql-editor {
+    padding: 0;
+}
+
+.ql-editor p, .ql-editor ol, .ql-editor ul {
+    font-weight: 400;
+}

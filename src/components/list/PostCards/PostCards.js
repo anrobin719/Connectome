@@ -23,7 +23,7 @@ const PostCards = ({posts}) => {
         <div className={classes.PostCards}>
             {/* {postCards} */}
             <PostCard
-                id="-LnNUEDiKVo6EWc6-2ib"
+                id="-LnQry6vevtU9X2jb776"
                 title="제목입니다"
                 sub="부연설명입니다. 블록체인/암호화폐 개발 컨설팅 및 공유해 드립니다. 기존 비트코인, 이더리움 등"
                 body="post body"

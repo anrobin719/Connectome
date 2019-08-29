@@ -1,7 +1,8 @@
 import React from 'react';
+
 import styled from 'styled-components';
 import Button from '../../UI/Button/Button';
-
+import PostBody from '../PostBody/PostBody';
 import classes from './Post.scss';
 
 const Post = ({ title, sub, myTalent, yourTalent, body, img }) => {
@@ -30,8 +31,7 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img }) => {
                         <div className={classes.talent}>보유재능 {myTalent}&nbsp; &nbsp;〉 희망재능 {yourTalent}</div>
                     </div>
 
-                    {/* post body */}
-                    <div dangerouslySetInnerHTML={{__html: body}}></div>
+                    <PostBody body={body}/>
 
                     <div className={classes.bodyContentBtnBox}>
                         <Button to="/" theme="outline-big">재능 교환하기</Button>

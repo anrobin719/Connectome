@@ -38,7 +38,7 @@ EditorBody.modules = {
     [{'font': []}],
     [{'size': []}],
     [{'color': []}, {'background': []}],
-    ['bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block'],
+    ['bold', 'italic', 'underline', 'strike'],
     [{'list': 'ordered'}, {'list': 'bullet'}, 
       {'indent': '-1'}, {'indent': '+1'},
       {'align': []}
@@ -49,8 +49,8 @@ EditorBody.modules = {
 
 EditorBody.formats = [
   'header', 'font', 'size', 'color', 'background',
-  'bold', 'italic', 'underline', 'strike', 'blockquote', 'code-block',
-  'list', 'bullet', 'indent',
+  'bold', 'italic', 'underline', 'strike',
+  'list', 'bullet', 'indent', 'align',
   'link', 'image'
 ]
 
