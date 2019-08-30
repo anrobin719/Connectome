@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../../store/actions/index';
-import PostCard from './PostCard/PostCard';
+import PostCard from '../../../components/list/PostCard/PostCard';
 import classes from './PostCards.scss';
 
 class PostCards extends Component {

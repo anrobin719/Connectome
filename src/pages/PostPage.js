@@ -2,10 +2,8 @@ import React from 'react';
 import PageWrapper from '../hoc/PageWrapper/PageWrapper';
 import PostContainer from '../containers/Post/PostContainer';
 
-// const PostPage = ({match}) => {
-const PostPage = () => {
-    // const { id } = match.params;
-    const id = '-LnVd_C6ZCG3KFx4lOck';
+const PostPage = ({match}) => {
+    const { id } = match.params;
     return (
         <PageWrapper>
             <PostContainer id={id}/>
