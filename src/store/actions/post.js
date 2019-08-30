@@ -25,11 +25,11 @@ export const getPost = ( id ) => {
         dispatch( getPostStart() );
         axios.get(`/post/${id}.json`)
             .then(res => {
-                console.log('get post success!', res);
+                console.log('GET_POST_SUCCESS', res);
                 dispatch( getPostSuccess(res.data) );
             })
             .catch(err => {
-                console.log('get post error!', err);
+                console.log('GET_POST_FAIL', err);
                 dispatch( getPostFail() );
             });
     }

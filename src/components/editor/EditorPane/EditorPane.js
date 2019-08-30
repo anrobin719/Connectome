@@ -42,7 +42,7 @@ class EditorPane extends Component {
         //     publishedDate: "2019-08-22",
         //     tags: "개발, UX/UI, IOS"
         // }
-        const { title, sub, myTalent, yourTalent, body, img, submitPost } = this.props;
+        const { title, sub, myTalent, yourTalent, body, img, submitPost, isEdit } = this.props;
 
         return (
             <div className={classes.EditorPane}>
@@ -118,7 +118,7 @@ class EditorPane extends Component {
                     </div>
 
                     <div className={classes.btnBox}>
-                        <Button theme="point-big" type="submit">저장하기</Button>
+                        <Button theme="point-big" type="submit">{isEdit ? '수정' : '저장'}하기</Button>
                     </div>
 
                 </form>

@@ -15,10 +15,6 @@ class PostContainer extends Component {
         await onGetPost(id);
     };
 
-    editPostHandler = () => {
-        console.log('EDIT post handler was clicked!');
-    }
-
     removePostHandler = async () => {
         await this.props.onRemovePost(this.props.id);
         this.props.history.push('/page/1');
@@ -30,6 +26,7 @@ class PostContainer extends Component {
         return (
             <div>
                 <Post
+                    id={this.props.id}
                     title={title}
                     sub={sub}
                     myTalent={myTalent}
@@ -37,7 +34,6 @@ class PostContainer extends Component {
                     body={body}
                     img={img}
                     publishedDate={publishedDate}
-                    editPostHandler={this.editPostHandler}
                     removePostHandler={this.removePostHandler}
                 />
             </div>

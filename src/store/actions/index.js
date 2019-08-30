@@ -1,3 +1,3 @@
-export { changeInput, changeFile, writePost } from './editor';
+export { changeInput, changeFile, writePost, editorGetPost, editPost } from './editor';
 export { getPost, removePost } from './post';
 export { getPostList } from './list';

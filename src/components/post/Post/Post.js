@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import moment from 'moment';
 import styled from 'styled-components';
@@ -6,7 +7,7 @@ import Button from '../../UI/Button/Button';
 import PostBody from '../PostBody/PostBody';
 import classes from './Post.scss';
 
-const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, editPostHandler, removePostHandler }) => {
+const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, removePostHandler, id }) => {
 
     return (
         <div className={classes.Post}>
@@ -39,7 +40,8 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, edit
 
                     <div className={classes.ctrBox}>
                         <p>{moment(publishedDate).format('lll')}</p>
-                        <button onClick={editPostHandler}>수정</button>
+                        {/* <button onClick={editPostHandler}>수정</button> */}
+                        <Link to={`/edit?id=${id}`}>수정</Link>
                         <button onClick={removePostHandler}>삭제</button>
                     </div>
 

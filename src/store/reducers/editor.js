@@ -46,6 +46,32 @@ const writePostFail = ( state, action ) => {
     });
 }
 
+const getPostStart = ( state, action ) => {
+    return updateObject(state, {
+        loading: true
+    })
+}
+
+const getPostSuccess = ( state, action ) => {
+    return updateObject(state, {
+        loading: false,
+        title: action.postData.title,
+        sub: action.postData.sub,
+        myTalent: action.postData.myTalent,
+        yourTalent: action.postData.yourTalent,
+        body: action.postData.body,
+        img: action.postData.img,
+        // postId: null,
+    })
+}
+
+const getPostFail = ( state, action ) => {
+    return updateObject(state, {
+        loading: false,
+        error: true
+    })
+}
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.CHANGE_INPUT: return changeInput(state, action);
@@ -53,6 +79,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.WRITE_POST_START: return writePostStart(state, action);
         case actionTypes.WRITE_POST_SUCCESS: return writePostSuccess(state, action);
         case actionTypes.WRITE_POST_FAIL: return writePostFail(state, action);
+        case actionTypes.EDITOR_GET_POST_START: return getPostStart(state, action);
+        case actionTypes.EDITOR_GET_POST_SUCCESS: return getPostSuccess(state, action);
+        case actionTypes.EDITOR_GET_POST_FAIL: return getPostFail(state, action);
         default: return state;
     }
 };

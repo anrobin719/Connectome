@@ -89,7 +89,17 @@
                     font-size: .8rem;
                     font-weight: 400;
                 }
+                a,
                 button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    display: inline-block;
+                    font-size: .8rem;
+                    font-weight: 400;
                     height: 2.4rem;
                     width: 2.4rem;
                     margin-top: 1rem;
