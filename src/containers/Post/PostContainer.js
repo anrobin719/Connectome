@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Post from '../../components/post/Post/Post';
 import * as actions from '../../store/actions/index';
@@ -14,8 +15,17 @@ class PostContainer extends Component {
         await onGetPost(id);
     };
 
+    editPostHandler = () => {
+        console.log('EDIT post handler was clicked!');
+    }
+
+    removePostHandler = async () => {
+        await this.props.onRemovePost(this.props.id);
+        this.props.history.push('/page/1');
+    }
+
     render() {
-        const { title, sub, myTalent, yourTalent, body, img } = this.props.post.toJS();
+        const { title, sub, myTalent, yourTalent, body, img, publishedDate } = this.props.post.toJS();
         if(this.props.loading) return null;
         return (
             <div>
@@ -26,6 +36,9 @@ class PostContainer extends Component {
                     yourTalent={yourTalent}
                     body={body}
                     img={img}
+                    publishedDate={publishedDate}
+                    editPostHandler={this.editPostHandler}
+                    removePostHandler={this.removePostHandler}
                 />
             </div>
         );
@@ -42,8 +55,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGetPost: (id) => dispatch(actions.getPost(id))
+        onGetPost: (id) => dispatch(actions.getPost(id)),
+        onRemovePost: (id) => dispatch(actions.removePost(id)),
+        onEditPost: () => dispatch()
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PostContainer));

@@ -78,6 +78,31 @@
                 font-size: .8rem;
                 margin-bottom: 2rem;
             }
+
+            // control buttons: edit, delete post function + published date
+            .ctrBox {
+                margin-top: 3rem;
+                display: inline-block;
+                text-align: right;
+                p {
+                    color: $oc-gray-4;
+                    font-size: .8rem;
+                    font-weight: 400;
+                }
+                button {
+                    height: 2.4rem;
+                    width: 2.4rem;
+                    margin-top: 1rem;
+                    margin-left: .3rem;
+                    border: none;
+                    background-color: $oc-gray-1;
+                    color: $oc-gray-6;
+                    outline: none;
+                    cursor: pointer;
+                    border-radius: 50%;
+                }
+            }
+
             // button
             .bodyContentBtnBox {
                 display: flex;

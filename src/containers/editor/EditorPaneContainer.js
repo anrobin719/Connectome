@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 
 import EditorPane from '../../components/editor/EditorPane/EditorPane';
 import * as actions from '../../store/actions/index';
@@ -17,10 +18,10 @@ class EditorPaneContainer extends Component {
         onChangeFile(name, file);
     }
 
-    submitPostHandler = (e) => {
-        e.preventDefault();
+    submitPostHandler = async () => {
+        
         const publishedDate = new Date();
-        const { title, sub, myTalent, yourTalent, body, img, onSubmitPost } = this.props;
+        const { title, sub, myTalent, yourTalent, body, img, onSubmitPost, history, location } = this.props;
         const postData = {
             title: title,
             sub: sub,
@@ -31,8 +32,18 @@ class EditorPaneContainer extends Component {
             publishedDate: publishedDate
         };
 
-        onSubmitPost(postData);
-        this.props.history.push(`/post/${this.props.postId}`);
+        try {
+            const { id } = queryString.parse(location.search);
+            if(id) {
+              await onSubmitPost({id, ...postData});
+              history.push(`/post/${id}`);
+              return;
+            }
+            await onSubmitPost(postData);
+            history.push(`/post/${this.props.postId}`);
+        } catch (e) {
+            console.log(e);
+        }
         
     }
 

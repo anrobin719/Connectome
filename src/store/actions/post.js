@@ -34,3 +34,36 @@ export const getPost = ( id ) => {
             });
     }
 }
+
+export const removePostStart = () => {
+    return {
+        type: actionTypes.REMOVE_POST_START
+    }
+}
+
+export const removePostSuccess = () => {
+    return {
+        type: actionTypes.REMOVE_POST_SUCCESS
+    }
+}
+
+export const removePostFail = () => {
+    return {
+        type: actionTypes.REMOVE_POST_FAIL
+    }
+}
+
+export const removePost = ( id ) => {
+    return dispatch => {
+        dispatch( removePostStart() );
+        axios.delete(`/post/${id}.json`)
+            .then(res => {
+                console.log('REMOVE_POST_SUCCESS');
+                dispatch( removePostSuccess() );
+            })
+            .catch(err => {
+                console.log('REMOVE_POST_FAIL', err);
+                dispatch( removePostFail() );
+            });
+    }
+}

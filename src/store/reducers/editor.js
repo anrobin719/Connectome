@@ -7,7 +7,7 @@ const initialState = {
     myTalent: '',
     yourTalent: '',
     body: '',
-    img: 'https://images.unsplash.com/photo-1535819982781-87e951f67cce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+    img: '',
     postId: null,
 
     loading: false,
