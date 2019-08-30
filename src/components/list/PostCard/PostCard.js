@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 import classes from './PostCard.scss';
 
-const PostCard = ({ id, title, sub, img, publishedDate, tags }) => {
+const PostCard = ({ id, title, sub, img, publishedDate, myTalent, yourTalent }) => {
     return (
         <div className={classes.paddingWrapper}>
             <div className={classes.PostCard}>
@@ -14,7 +14,8 @@ const PostCard = ({ id, title, sub, img, publishedDate, tags }) => {
                         <CardImg img={img}/>
                     </div>
                     <div className={classes.contentBox}>
-                        <span>{tags}</span>
+                        <span>#{myTalent}</span>
+                        <span>#{yourTalent}</span>
                         <h4>{title}</h4>
                         <h6>{sub}</h6>
                         <p>{moment(publishedDate).format('lll')}</p>

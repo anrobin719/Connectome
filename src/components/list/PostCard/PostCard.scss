@@ -30,7 +30,8 @@
                 
                 // tag
                 span {
-                    display: block;
+                    display: inline-block;
+                    margin-right: .3rem;
                     color: $c-primary;
                 }
                 // title

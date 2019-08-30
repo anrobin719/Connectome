@@ -15,7 +15,7 @@ class HomePostCards extends Component {
         const slicePosts = posts.setSize(3);
         if(loading) return null;
         const postCards = slicePosts.map(post => {
-            const { id, title, sub, img, publishedDate, tags } = post.toJS();
+            const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
             return (
                 <PostCard
                     key={id}
@@ -24,7 +24,8 @@ class HomePostCards extends Component {
                     sub={sub}
                     img={img}
                     publishedDate={publishedDate}
-                    tags={tags}
+                    myTalent={myTalent}
+                    yourTalent={yourTalent}
                 />
             );
         });

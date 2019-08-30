@@ -17,7 +17,7 @@ class PostCards extends Component {
         if(loading) return null;
 
         const postCards = posts.map(post => {
-            const { id, title, sub, img, publishedDate, tags } = post.toJS();
+            const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
             return (
                 <PostCard
                     key={id}
@@ -26,7 +26,8 @@ class PostCards extends Component {
                     sub={sub}
                     img={img}
                     publishedDate={publishedDate}
-                    tags={tags}
+                    myTalent={myTalent}
+                    yourTalent={yourTalent}
                 />
             );
         });
