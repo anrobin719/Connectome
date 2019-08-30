@@ -5,11 +5,6 @@ import Button from '../../UI/Button/Button';
 import classes from './EditorPane.scss';
 
 class EditorPane extends Component {
-    // state = {
-    //     selectedFile: null,
-    //     fileStatus: false
-    // }
-
     inputChangedHandler = e => {
         const { changeInput } = this.props;
         const { name, value } = e.target;

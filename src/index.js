@@ -11,11 +11,13 @@ import * as serviceWorker from './serviceWorker';
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
 import editorReducer from './store/reducers/editor';
 import postReducer from './store/reducers/post';
+import listReducer from './store/reducers/list';
 
 
 const rootReducer = combineReducers({
     editor: editorReducer,
-    post: postReducer
+    post: postReducer,
+    list: listReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

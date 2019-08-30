@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 import SearchBanner from '../components/list/SearchBanner/SearchBanner';
 import PageWrapper from '../hoc/PageWrapper/PageWrapper';
-import ListContents from '../components/list/ListContents/ListContents';
+import PostCards from '../components/list/PostCards/PostCards';
 
 const ListPage = () => {
     return (
         <Fragment>
             <SearchBanner />
             <PageWrapper>
-                <ListContents />
+                <PostCards />
             </PageWrapper>
         </Fragment>
     );

@@ -29,6 +29,7 @@ export const getPost = ( id ) => {
                 dispatch( getPostSuccess(res.data) );
             })
             .catch(err => {
+                console.log('get post error!', err);
                 dispatch( getPostFail() );
             });
     }

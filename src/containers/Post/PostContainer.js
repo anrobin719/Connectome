@@ -15,9 +15,8 @@ class PostContainer extends Component {
     };
 
     render() {
-        if(this.props.loading) return null;
-
         const { title, sub, myTalent, yourTalent, body, img } = this.props.post.toJS();
+        if(this.props.loading) return null;
         return (
             <div>
                 <Post
