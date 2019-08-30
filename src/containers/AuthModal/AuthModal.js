@@ -6,7 +6,7 @@ import SignUp from '../../components/auth/SignUp/SignUp';
 class AuthModal extends Component {
     state = {
         authModal: false,
-        isSignIn: true
+        isSignIn: false
     }
 
     modalCloseHandler = () => {

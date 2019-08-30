@@ -5,7 +5,7 @@ import PostContainer from '../containers/Post/PostContainer';
 // const PostPage = ({match}) => {
 const PostPage = () => {
     // const { id } = match.params;
-    const id = '-LnQry6vevtU9X2jb776';
+    const id = '-LnVd_C6ZCG3KFx4lOck';
     return (
         <PageWrapper>
             <PostContainer id={id}/>

@@ -21,20 +21,20 @@ class EditorPane extends Component {
         changeInput({name, value});
     }
 
-    fileSelectedHandler = (e) => { 
-        e.preventDefault (); 
-        const {files} = e.target; 
-        const localImageUrl = window.URL.createObjectURL(files[0]); 
-        this.props.changeFile(e.target.name, localImageUrl);
+    fileSelectedHandler = (e) => {
+        console.log(e.target.files[0]);
+    
+        if (e.target.files != null || e.target.files[0] != null) {
+            const { changeFile } = this.props;
+            const { name } = e.target;
 
-        // this.setState({selectedFile: e.target.files[0]});
-        // this.setState({fileStatus: true});
-
-        let reader = new FileReader();
-        reader.onload = (e) => {
-            this.refImg.setAttribute('src', e.target.result);
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                this.refImg.setAttribute('src', e.target.result);
+                changeFile(name, e.target.result);
+            }
+            reader.readAsDataURL(e.target.files[0]);
         }
-        reader.readAsDataURL(e.target.files[0]);
     }
 
     render() {
