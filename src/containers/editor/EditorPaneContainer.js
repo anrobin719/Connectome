@@ -19,6 +19,7 @@ class EditorPaneContainer extends Component {
 
     submitPostHandler = (e) => {
         e.preventDefault();
+        const publishedDate = new Date();
         const { title, sub, myTalent, yourTalent, body, img, onSubmitPost } = this.props;
         const postData = {
             title: title,
@@ -26,7 +27,8 @@ class EditorPaneContainer extends Component {
             myTalent: myTalent,
             yourTalent: yourTalent,
             body: body,
-            img: img
+            img: img,
+            publishedDate: publishedDate
         };
 
         onSubmitPost(postData);

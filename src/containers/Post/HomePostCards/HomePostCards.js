@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import PostCard from '../../../components/list/PostCards/PostCard/PostCard';
+import PostCard from '../../../components/list/PostCard/PostCard';
 import * as actions from '../../../store/actions/index';
 import classes from './HomePostCards.scss';
 

@@ -48,12 +48,11 @@ export const writePost = ( PostData ) => {
         dispatch( writePostStart() );
         axios.post('/post.json', PostData)
         .then( res => {
-            console.log('action: success!');
-            console.log(res);
+            console.log('WRITE_POST_SUCCESS');
             dispatch( writePostSuccess(res.data.name) );
         })
         .catch( err => {
-            console.log('action: err');
+            console.log('WRITE_POST_FAIL');
             dispatch( writePostFail(err) );
         });
     };

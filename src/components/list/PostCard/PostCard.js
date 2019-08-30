@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
+import styled from 'styled-components';
+import moment from 'moment';
 import classes from './PostCard.scss';
 
 const PostCard = ({ id, title, sub, img, publishedDate, tags }) => {
@@ -16,7 +17,7 @@ const PostCard = ({ id, title, sub, img, publishedDate, tags }) => {
                         <span>{tags}</span>
                         <h4>{title}</h4>
                         <h6>{sub}</h6>
-                        <p>{publishedDate}</p>
+                        <p>{moment(publishedDate).format('lll')}</p>
                     </div>
                 </Link>
             </div>
