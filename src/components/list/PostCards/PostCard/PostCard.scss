@@ -1,46 +1,51 @@
 @import '../../../../styles/lib/utils.scss';
 
-.PostCard {
-    display: flex;
-    flex: .32;
-    font-size: .8rem;
-    font-weight: 300;
-    border-radius: .2rem;
-    overflow: hidden;
-    @include material-shadow(1,1,$oc-gray-6);
-    transition: all .2s ease-in-out;
-    &:hover,
-    &:active {
-        @include material-shadow(3,1,$oc-gray-6);
-    }
+.paddingWrapper {
+    padding: 0 .5rem;
+    flex: 0 0 33.3%;
+    box-sizing: border-box;
 
-    a { 
-        width: 100%;
-        .ImgBox {
-            height: 200px;
-            width: 100%;
-            background-color: #eee;
+    .PostCard {
+        margin-bottom: 3rem;
+        font-size: .8rem;
+        font-weight: 300;
+        border-radius: .2rem;
+        overflow: hidden;
+        @include material-shadow(1,1,$oc-gray-6);
+        transition: all .2s ease-in-out;
+        &:hover,
+        &:active {
+            @include material-shadow(3,1,$oc-gray-6);
         }
-        .ContentBox {
-            padding: 1rem 1rem 1.6rem;
-            
-            // tag
-            span {
-                display: block;
-                color: $c-primary;
+    
+        a { 
+            width: 100%;
+            .imgBox {
+                height: 200px;
+                width: 100%;
+                background-color: #eee;
             }
-            // title
-            h4 {
-                font-size: 1rem;
-                font-weight: 700;
-            }
-            // sub title
-            h6 {
-                margin-bottom: .3rem;
-            }
-            // published date
-            p {
-                color: $oc-gray-6;
+            .contentBox {
+                padding: 1rem 1rem 1.6rem;
+                
+                // tag
+                span {
+                    display: block;
+                    color: $c-primary;
+                }
+                // title
+                h4 {
+                    font-size: 1rem;
+                    font-weight: 700;
+                }
+                // sub title
+                h6 {
+                    margin-bottom: .3rem;
+                }
+                // published date
+                p {
+                    color: $oc-gray-6;
+                }
             }
         }
     }

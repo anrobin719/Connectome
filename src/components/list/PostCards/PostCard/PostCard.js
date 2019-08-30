@@ -4,20 +4,22 @@ import styled from 'styled-components';
 
 import classes from './PostCard.scss';
 
-const PostCard = ({ id, title, sub, body, img, publishedDate, tags }) => {
+const PostCard = ({ id, title, sub, img, publishedDate, tags }) => {
     return (
-        <div className={classes.PostCard}>
-            <Link to={`/post/${id}`}>
-                <div className={classes.ImgBox}>
-                    <CardImg img={img}/>
-                </div>
-                <div className={classes.ContentBox}>
-                    <span>{tags}</span>
-                    <h4>{title}</h4>
-                    <h6>{sub}</h6>
-                    <p>{publishedDate}</p>
-                </div>
-            </Link>
+        <div className={classes.paddingWrapper}>
+            <div className={classes.PostCard}>
+                <Link to={`/post/${id}`}>
+                    <div className={classes.imgBox}>
+                        <CardImg img={img}/>
+                    </div>
+                    <div className={classes.contentBox}>
+                        <span>{tags}</span>
+                        <h4>{title}</h4>
+                        <h6>{sub}</h6>
+                        <p>{publishedDate}</p>
+                    </div>
+                </Link>
+            </div>
         </div>
     );
 };
