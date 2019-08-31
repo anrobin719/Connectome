@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { HomePage, ListPage, PostPage, EditPage, AuthPage, NotFoundPage } from './pages';
-import ModalContainer from './containers/AuthModal/AuthModal';
+import Base from './containers/common/Base';
 
 import './App.scss';
 import Layout from './hoc/Layout/Layout';
@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Layout>
-        <ModalContainer />
+        <Base />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/page/:page" component={ListPage} />

@@ -12,12 +12,14 @@ import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
 import editorReducer from './store/reducers/editor';
 import postReducer from './store/reducers/post';
 import listReducer from './store/reducers/list';
+import baseReducer from './store/reducers/base';
 
 
 const rootReducer = combineReducers({
     editor: editorReducer,
     post: postReducer,
-    list: listReducer
+    list: listReducer,
+    base: baseReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -38,7 +38,7 @@ const Input = ( props ) => {
                         value={props.value}
                         onChange={props.changed}
                         style={props.style}
-                        autocomplete="off" />;
+                        />;
                     break;
                 default:
                     inputElement = <input
@@ -47,7 +47,7 @@ const Input = ( props ) => {
                         value={props.value}
                         onChange={props.changed}
                         style={props.style}
-                        autocomplete="off" />;
+                        />;
             }
             break;
 
@@ -65,7 +65,7 @@ const Input = ( props ) => {
                 value={props.value}
                 onChange={props.changed}
                 style={props.style}
-                autocomplete="off" />;
+                />;
     }
 
     return (

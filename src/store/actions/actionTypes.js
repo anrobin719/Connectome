@@ -26,3 +26,6 @@ export const EDITOR_GET_POST_FAIL = 'EDITOR_GET_POST_FAIL';
 export const EDIT_POST_START = 'EDIT_POST_START';
 export const EDIT_POST_SUCCESS = 'EDIT_POST_SUCCESS';
 export const EDIT_POST_FAIL = 'EDIT_POST_FAIL';
+
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';

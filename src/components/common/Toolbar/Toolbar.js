@@ -8,7 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const cx = classNames.bind(styles);
 
-const Toolbar = () => {
+const Toolbar = ({onShowModal}) => {
     return (
         <header className={cx('Toolbar')}>
             <div className={cx('content')}>
@@ -27,7 +27,7 @@ const Toolbar = () => {
                 </div>
 
                 <nav className={cx('navItems')}>
-                    <NavigationItems />
+                    <NavigationItems onShowModal={onShowModal}/>
                 </nav>
 
             </div>
