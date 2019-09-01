@@ -43,10 +43,10 @@ export const writePostFail = (err) => {
     }
 }
 
-export const writePost = ( PostData ) => {
+export const writePost = ( newPostData ) => {
     return dispatch => {
         dispatch( writePostStart() );
-        axios.post('/post.json', PostData)
+        axios.post('/post.json', newPostData)
         .then( res => {
             console.log('WRITE_POST_SUCCESS');
             dispatch( writePostSuccess(res.data.name) );
@@ -108,10 +108,10 @@ export const editPostFail = () => {
     }
 }
 
-export const editPost = ({id, ...postData}) => {
+export const editPost = (id, postData) => {
     return dispatch => {
         dispatch( editPostStart() );
-        axios.put(`/post/${id}.json`, {...postData})
+        axios.put(`/post/${id}.json`, postData)
         .then(res => {
             console.log('EDIT_POST_SUCCESS')
             dispatch( editPostSuccess(res) );

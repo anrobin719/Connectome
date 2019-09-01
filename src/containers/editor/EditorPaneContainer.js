@@ -27,8 +27,8 @@ class EditorPaneContainer extends Component {
     }
 
     submitPostHandler = async () => {
-        const publishedDate = new Date();
-        const { title, sub, myTalent, yourTalent, body, img, onSubmitPost, onEditPost, history, location } = this.props;
+        const { title, sub, myTalent, yourTalent, body, img, publishedDate, onSubmitPost, onEditPost, history, location } = this.props;
+        const { id } = queryString.parse(location.search);
         const postData = {
             title: title,
             sub: sub,
@@ -39,14 +39,19 @@ class EditorPaneContainer extends Component {
             publishedDate: publishedDate
         };
 
+        const newPostpublishedDate = new Date();
+        const newPostData = {
+            ...postData,
+            publishedDate: newPostpublishedDate
+        };
+
         try {
-            const { id } = queryString.parse(location.search);
             if(id) {
-              await onEditPost({id, ...postData});
+              await onEditPost(id, postData);
               history.push(`/post/${id}`);
               return;
             }
-            await onSubmitPost(postData);
+            await onSubmitPost(newPostData);
             history.push(`/post/${this.props.postId}`);
         } catch (e) {
             console.log(e);
@@ -84,6 +89,7 @@ const mapStateToProps = state => {
         yourTalent: state.editor.yourTalent,
         body: state.editor.body,
         img: state.editor.img,
+        publishedDate: state.editor.publishedDate,
         postId: state.editor.postId,
         loading: state.editor.loading,
         error: state.editor.error
@@ -94,9 +100,9 @@ const mapDispatchToProps = dispatch => {
     return {
         onChangeInput: ({name, value}) => dispatch(actions.changeInput({name, value})),
         onChangeFile: (name, value) => dispatch(actions.changeFile(name, value)),
-        onSubmitPost: (postData) => dispatch(actions.writePost(postData)),
+        onSubmitPost: (newPostData) => dispatch(actions.writePost(newPostData)),
         onGetPost: (id) => dispatch(actions.editorGetPost(id)),
-        onEditPost: ({id, ...postData}) => dispatch(actions.editPost({id, ...postData}))
+        onEditPost: (id, postData) => dispatch(actions.editPost(id, postData))
     };
 };
 

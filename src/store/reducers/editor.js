@@ -8,6 +8,7 @@ const initialState = {
     yourTalent: '',
     body: '',
     img: '',
+    publishedDate: null,
     postId: null,
 
     loading: false,
