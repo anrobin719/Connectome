@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PostCard from '../../../components/list/PostCard/PostCard';
+import Loading from '../../../components/UI/Loading/Loading';
 import * as actions from '../../../store/actions/index';
 import classes from './HomePostCards.scss';
 
@@ -13,7 +14,11 @@ class HomePostCards extends Component {
     render() {
         const { posts, loading } = this.props;
         const slicePosts = posts.setSize(3);
-        if(loading) return null;
+        if(loading) return (
+            <div className={classes.loadingBox}>
+                <Loading extraClass="fit" />
+            </div>
+        );
         const postCards = slicePosts.map(post => {
             const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
             return (
@@ -31,8 +36,10 @@ class HomePostCards extends Component {
         });
 
         return (
-            <div className={classes.HomePostCards}>
-                {postCards}
+            <div className={classes.loadingBox}>
+                <div className={classes.HomePostCards}>
+                    {postCards}
+                </div>
             </div>
         );
     }

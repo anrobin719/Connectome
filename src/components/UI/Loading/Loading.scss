@@ -1,0 +1,80 @@
+@import '../../../styles/lib/utils.scss';
+
+.Loading {
+    height: calc(100vh - 64px);
+    background-color: rgba(255,255,255,.5);
+    
+    .loadingBar {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 64px;
+        height: 64px;
+        
+        div {
+            position: absolute;
+            top: 27px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: $c-secondary-light;
+            animation-timing-function: cubic-bezier(0, 1, 1, 0);
+            &:nth-child(1) {
+                left: 6px;
+                animation: loadingBar1 0.6s infinite;
+                }
+            &:nth-child(2) {
+                left: 6px;
+                animation: loadingBar2 0.6s infinite;
+            }
+            &:nth-child(3) {
+                left: 26px;
+                animation: loadingBar2 0.6s infinite;
+            }
+            &:nth-child(4) {
+                left: 45px;
+                animation: loadingBar3 0.6s infinite;
+            }
+        }
+    }
+}
+
+
+// LOADING EXTRA CLASS
+.fit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+@keyframes loadingBar1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes loadingBar2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(19px, 0);
+    }
+}
+
+@keyframes loadingBar3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}

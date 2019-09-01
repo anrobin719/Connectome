@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './HomeContents.scss';
-import HomePostCards from '../../../containers/Post/HomePostCards/HomePostCards';
+import HomePostCards from '../../../containers/home/HomePostCards/HomePostCards';
 
 const HomeContents = () => {
     return (

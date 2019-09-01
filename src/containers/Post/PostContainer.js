@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import Post from '../../components/post/Post/Post';
 import * as actions from '../../store/actions/index';
+import Loading from '../../components/UI/Loading/Loading';
 
 class PostContainer extends Component {
     componentDidMount() {
@@ -22,7 +23,9 @@ class PostContainer extends Component {
 
     render() {
         const { title, sub, myTalent, yourTalent, body, img, publishedDate } = this.props.post.toJS();
-        if(this.props.loading) return null;
+        
+        if(this.props.loading) return <Loading />;
+
         return (
             <div>
                 <Post

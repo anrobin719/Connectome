@@ -1,5 +1,11 @@
-.HomePostCards {
+.loadingBox {
+    height: 360px;
+    width: 100%;
+    position: relative;
     margin-bottom: 6rem;
+}
+
+.HomePostCards {
     display: flex;
     flex-flow: row wrap;
     flex-direction: row;
