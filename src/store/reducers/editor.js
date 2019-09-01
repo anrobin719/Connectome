@@ -15,6 +15,10 @@ const initialState = {
     error: false
 };
 
+const initialize = ( state, action ) => {
+    return initialState;
+}
+
 const changeInput = ( state, action ) => {
     return updateObject( state, {
         [action.name]: action.value
@@ -47,13 +51,13 @@ const writePostFail = ( state, action ) => {
     });
 }
 
-const getPostStart = ( state, action ) => {
+const editorGetPostStart = ( state, action ) => {
     return updateObject(state, {
         loading: true
     })
 }
 
-const getPostSuccess = ( state, action ) => {
+const editorGetPostSuccess = ( state, action ) => {
     return updateObject(state, {
         loading: false,
         title: action.postData.title,
@@ -66,7 +70,7 @@ const getPostSuccess = ( state, action ) => {
     })
 }
 
-const getPostFail = ( state, action ) => {
+const editorGetPostFail = ( state, action ) => {
     return updateObject(state, {
         loading: false,
         error: true
@@ -75,14 +79,15 @@ const getPostFail = ( state, action ) => {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.INITIALIZE: return initialize(state, action);
         case actionTypes.CHANGE_INPUT: return changeInput(state, action);
         case actionTypes.CHANGE_FILE: return changeFile(state, action);
         case actionTypes.WRITE_POST_START: return writePostStart(state, action);
         case actionTypes.WRITE_POST_SUCCESS: return writePostSuccess(state, action);
         case actionTypes.WRITE_POST_FAIL: return writePostFail(state, action);
-        case actionTypes.EDITOR_GET_POST_START: return getPostStart(state, action);
-        case actionTypes.EDITOR_GET_POST_SUCCESS: return getPostSuccess(state, action);
-        case actionTypes.EDITOR_GET_POST_FAIL: return getPostFail(state, action);
+        case actionTypes.EDITOR_GET_POST_START: return editorGetPostStart(state, action);
+        case actionTypes.EDITOR_GET_POST_SUCCESS: return editorGetPostSuccess(state, action);
+        case actionTypes.EDITOR_GET_POST_FAIL: return editorGetPostFail(state, action);
         default: return state;
     }
 };

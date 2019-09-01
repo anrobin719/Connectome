@@ -7,9 +7,9 @@ import EditorPane from '../../components/editor/EditorPane/EditorPane';
 import * as actions from '../../store/actions/index';
 
 class EditorPaneContainer extends Component {
-
     componentDidMount() {
-        const { location, onGetPost } = this.props;
+        const { location, onInitialize, onGetPost } = this.props;
+        onInitialize();
         const { id } = queryString.parse(location.search);
         if(id) {
             onGetPost(id);
@@ -98,6 +98,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+        onInitialize: () => dispatch(actions.initialize()),
         onChangeInput: ({name, value}) => dispatch(actions.changeInput({name, value})),
         onChangeFile: (name, value) => dispatch(actions.changeFile(name, value)),
         onSubmitPost: (newPostData) => dispatch(actions.writePost(newPostData)),

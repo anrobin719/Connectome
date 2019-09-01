@@ -58,18 +58,18 @@ export const writePost = ( newPostData ) => {
     };
 }
 
-export const getPostStart = () => {
+export const editorGetPostStart = () => {
     return {
         type: actionTypes.EDITOR_GET_POST_START
     }
 }
-export const getPostSuccess = ( data ) => {
+export const editorGetPostSuccess = ( data ) => {
     return {
         type: actionTypes.EDITOR_GET_POST_SUCCESS,
         postData: data
     }
 }
-export const getPostFail = () => {
+export const editorGetPostFail = () => {
     return {
         type: actionTypes.EDITOR_GET_POST_FAIL
     }
@@ -77,15 +77,15 @@ export const getPostFail = () => {
 
 export const editorGetPost = ( id ) => {
     return dispatch => {
-        dispatch( getPostStart() );
+        dispatch( editorGetPostStart() );
         axios.get(`/post/${id}.json`)
         .then(res => {
             console.log('EDITOR_GET_POST_SUCCESS')
-            dispatch( getPostSuccess(res.data) );
+            dispatch( editorGetPostSuccess(res.data) );
         })
         .catch(err => {
             console.log('EDITOR_GET_POST_FAIL', err);
-            dispatch( getPostFail() );
+            dispatch( editorGetPostFail() );
         });
     }
 }

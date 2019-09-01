@@ -9,26 +9,6 @@ const initialState = Map({
     error: false,
 })
 
-// const getPostStart = ( state, action ) => {
-//     return updateObject(state, {
-//         loading: true
-//     });
-// }
-
-// const getPostSuccess = ( state, action ) => {
-//     return updateObject(state, {
-//         loading: false,
-//         post: action.postData
-//     });
-// }
-
-// const getPostFail = ( state, action ) => {
-//     return updateObject(state, {
-//         loading: false,
-//         error: true
-//     });
-// }
-
 const getPostStart = ( state, action ) => {
     const newState = state.set('loading', true);
     return newState;
