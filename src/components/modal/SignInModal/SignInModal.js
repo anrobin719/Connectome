@@ -54,6 +54,16 @@ class SignInModal extends Component {
         this.setState({controls: updateControls});
     }
 
+    signInSubmit = (e) => {
+        e.preventDefault();
+        const signInData = {
+            email: this.state.controls.email.value,
+            password: this.state.controls.password.value,
+            isSignUp: false
+        }
+        this.props.signInHandler(signInData);
+    }
+
     render() {
         const formElementsArray = [];
         for ( let key in this.state.controls ) {
@@ -77,15 +87,18 @@ class SignInModal extends Component {
                 changed={(event) => this.inputChangedHandler( event, formElement.id )} />            
         ));
 
-        const { show, onCancel } = this.props;
+        const { show, cancelHandler, loading, error } = this.props;
         return (
-            <Modal show={show} modalClosed={onCancel}>
+            <Modal show={show} modalClosed={cancelHandler}>
                 <div className={classes.SignIn}>
-                    <h4>로그인</h4>
-                    {form}
-                    <div className={classes.btnBox}>
-                        <Button theme="invert-big">로그인하기</Button>
-                    </div>
+                    <form onSubmit={this.signInSubmit}>
+                        <h4>로그인</h4>
+                        {form}
+                        { error ? <div>{error}</div> : null }
+                        <div className={classes.btnBox}>
+                            <Button theme="invert-big">로그인하기</Button>
+                        </div>
+                    </form>
                 </div>
             </Modal>
 

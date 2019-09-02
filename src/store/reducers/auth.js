@@ -36,6 +36,8 @@ const authFail = ( state, action ) => {
             return updateObject(state, {loading: false, error: '유효하지 않은 이메일입니다.'});
         case 'WEAK_PASSWORD : Password should be at least 6 characters':
             return updateObject(state, {loading: false, error: '패스워드를 6자 이상 입력해주세요.'});
+        case 'EMAIL_NOT_FOUND':
+            return updateObject(state, {loading: false, error: '등록되지 않은 이메일입니다.'});
         default:
             return updateObject(state, {loading: false, error: action.errorMessage});
     }
