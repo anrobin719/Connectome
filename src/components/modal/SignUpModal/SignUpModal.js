@@ -72,6 +72,29 @@ class SignUpModal extends Component {
         isSignup: false
     }
 
+    initializeAuthInput = () => {
+        const initControls = updateObject(this.state.controls, {
+            firstName: updateObject(this.state.controls.firstName, {
+                value: '',
+                touched: false
+            }),
+            lastName: updateObject(this.state.controls.lastName, {
+                value: '',
+                touched: false
+            }),
+            email: updateObject(this.state.controls.email, {
+                value: '',
+                touched: false
+            }),
+            password: updateObject(this.state.controls.password, {
+                value: '',
+                touched: false
+            })
+        });
+        console.log('initializeAuthInput');
+        this.setState({controls: initControls});
+    }
+
     inputChangedHandler = (event, controlName) => {
         const updateControls = updateObject( this.state.controls, {
             [controlName]: updateObject(this.state.controls[controlName], {
@@ -121,7 +144,7 @@ class SignUpModal extends Component {
 
         const { show, cancelHandler, loading, error} = this.props;
         return (
-            <Modal show={show} modalClosed={cancelHandler}>
+            <Modal show={show} modalClosed={e => {cancelHandler(); this.initializeAuthInput();}}>
                 {loading ? <Loading extraClass="fit"/> : null}
                 <div className={classes.SignUp}>
                     <form onSubmit={this.signUpSubmit}>
