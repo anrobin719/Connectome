@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { HomePage, ListPage, PostPage, EditPage, AuthPage, NotFoundPage } from './pages';
+import { HomePage, ListPage, PostPage, EditPage, NotFoundPage } from './pages';
 import Base from './containers/common/Base';
 
 import './App.scss';
@@ -18,7 +18,6 @@ class App extends Component {
           <Route path="/tag/:tag/:page?" component={ListPage} />
           <Route path="/post/:id" component={PostPage} />
           <Route path="/edit" component={EditPage} />
-          <Route path="/auth" component={AuthPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Layout>

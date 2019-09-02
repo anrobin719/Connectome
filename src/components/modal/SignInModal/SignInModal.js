@@ -4,6 +4,7 @@ import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
 import Modal from '../../UI/Modal/Modal';
 import classes from './SignInModal.scss';
+import { updateObject, checkValidity } from '../../../shared/utility';
 
 class SignInModal extends Component {
     state = {
@@ -33,13 +34,24 @@ class SignInModal extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    minLength: 8
+                    minLength: 6
                 },
                 valid: false,
                 touched: false
             }
         },
         isSignup: false
+    }
+
+    inputChangedHandler = (event, controlName) => {
+        const updateControls = updateObject(this.state.controls, {
+            [controlName]: updateObject(this.state.controls[controlName], {
+                value: event.target.value,
+                valid: checkValidity(event.target.value, this.state.controls[controlName].validation),
+                touched: true
+            })
+        });
+        this.setState({controls: updateControls});
     }
 
     render() {

@@ -9,22 +9,35 @@ class SignUpModalContainer extends Component {
         this.props.onCancel('signUp');
     }
 
+    signUpHandler = (signUpData) => {
+        this.props.onSignUp(signUpData);
+    }
+
     render() {
-        const { show } = this.props;
+        const { show, loading, error } = this.props;
         return (
-            <SignUpModal show={show} onCancel={this.cancelHandler}/>
+            <SignUpModal
+                show={show}
+                loading={loading}
+                error={error}
+                cancelHandler={this.cancelHandler}
+                signUpHandler={this.signUpHandler}
+            />
         );
     }
 }
 
 const mapStateToProps = state => {
     return {
-        show: state.base.getIn(['modal', 'signUp'])
+        show: state.base.getIn(['modal', 'signUp']),
+        loading: state.auth.loading,
+        error: state.auth.error,
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onCancel: (modalName) => dispatch(actions.hideModal(modalName))
+        onCancel: (modalName) => dispatch(actions.hideModal(modalName)),
+        onSignUp: (signUpData) => dispatch(actions.auth(signUpData))
     }
 }
 

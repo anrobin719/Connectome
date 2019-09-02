@@ -9,8 +9,8 @@ const NavigationItems = ({onShowModal}) => {
             <NavigationItem link="/page/:page" exact>재능 교환</NavigationItem>
             <NavigationItem link="/edit" exact>새글 작성</NavigationItem>
             {/* <NavigationItem link="" exact>로그인</NavigationItem> */}
+            <Button onClick={() => onShowModal('signIn')} theme="nav"><div>로그인</div></Button>
             <div className={classes.signUpBtnBox}>
-                <Button onClick={() => onShowModal('signIn')}>로그인</Button>
                 <Button onClick={() => onShowModal('signUp')} theme="outline" exact>회원가입</Button>
             </div>
         </ul>

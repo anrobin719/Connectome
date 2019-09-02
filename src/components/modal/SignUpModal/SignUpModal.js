@@ -32,8 +32,7 @@ class SignUpModal extends Component {
                 },
                 value: '',
                 validation: {
-                    required: true,
-                    isEmail: true
+                    required: true
                 },
                 vaild: false,
                 touched: false
@@ -63,7 +62,7 @@ class SignUpModal extends Component {
                 value: '',
                 validation: {
                     required: true,
-                    minLength: 8
+                    minLength: 6
                 },
                 valid: false,
                 touched: false
@@ -81,6 +80,18 @@ class SignUpModal extends Component {
             })
         })
         this.setState({controls: updateControls});
+    }
+
+    signUpSubmit = (e) => {
+        e.preventDefault();
+        const signUpData = {
+            firstName: this.state.controls.firstName.value,
+            lastName: this.state.controls.lastName.value,
+            email: this.state.controls.email.value,
+            password: this.state.controls.password.value,
+            isSignUp: true
+        }
+        this.props.signUpHandler(signUpData);
     }
 
     render() {
@@ -103,18 +114,22 @@ class SignUpModal extends Component {
                 invalid={!formElement.config.valid}
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
-                changed={(event) => this.inputChangedHandler( event, formElement.id )} />            
+                changed={(event) => this.inputChangedHandler( event, formElement.id )}
+                autoComplete="off" />            
         ));
 
-        const { show, onCancel } = this.props;
+        const { show, cancelHandler, loading, error} = this.props;
         return (
-            <Modal show={show} modalClosed={onCancel}>
+            <Modal show={show} modalClosed={cancelHandler}>
                 <div className={classes.SignUp}>
-                    <h4>회원가입</h4>
-                    {form}
-                    <div className={classes.btnBox}>
-                        <Button theme="invert-big">회원가입하기</Button>
-                    </div>
+                    <form onSubmit={this.signUpSubmit}>
+                        <h4>회원가입</h4>
+                        {form}
+                        { error ? <div>{error}</div> : null }
+                        <div className={classes.btnBox}>
+                            <Button theme="invert-big">회원가입하기</Button>
+                        </div>
+                    </form>
                 </div>
             </Modal>
 

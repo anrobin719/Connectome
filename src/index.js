@@ -13,13 +13,15 @@ import editorReducer from './store/reducers/editor';
 import postReducer from './store/reducers/post';
 import listReducer from './store/reducers/list';
 import baseReducer from './store/reducers/base';
+import authReducer from './store/reducers/auth';
 
 
 const rootReducer = combineReducers({
     editor: editorReducer,
     post: postReducer,
     list: listReducer,
-    base: baseReducer
+    base: baseReducer,
+    auth: authReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

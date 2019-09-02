@@ -16,6 +16,7 @@
     user-select: none;
     display: inline-flex;
     transition: all .2s ease-in-out;
+    outline: none;
 
     // outline theme
     &.outline {
@@ -57,7 +58,7 @@
             color: white;
             font-size: 1rem;
             font-weight: 400;
-            padding: .6rem 2rem .8rem;
+            padding: .8rem 2rem;
         }
     }
 
@@ -93,7 +94,7 @@
             color: white;
             font-size: 1rem;
             font-weight: 400;
-            padding: .6rem 2rem .8rem;
+            padding: .8rem 2rem;
             &:hover,
             &:active {
                 background-color: $c-primary-light;
@@ -124,5 +125,29 @@
                 background-color: $c-secondary-light;
             }
         }
+    }
+}
+
+// navItem theme
+.nav {
+    font-family: $f-ko-sans;
+    padding: 0;
+    display: flex;
+    height: 100%;
+    margin: 0 4px;
+    padding: 0 .5rem;
+    font-weight: 600;
+    font-size: .8rem;
+    color: $c-primary;
+    transition: none;
+    outline: none;
+    div {
+        height: 100%;
+        box-sizing: border-box;
+    }
+    &:hover,
+    &:active {
+        color: $c-primary;
+        border-bottom: 2px solid $c-primary;
     }
 }

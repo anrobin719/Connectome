@@ -30,7 +30,24 @@ const Input = ( props ) => {
                     });
                     break;
                 case('text'):
+                    inputElement = <input
+                        {...props.elementConfig}
+                        className={[classes.inputTag].concat(inputClasses).join(' ')}
+                        value={props.value}
+                        onChange={props.changed}
+                        style={props.style}
+                        />;
+                    break;
                 case('email'):
+                    inputElement = <input
+                        {...props.elementConfig}
+                        className={[classes.inputTag].concat(inputClasses).join(' ')}
+                        value={props.value}
+                        onChange={props.changed}
+                        style={props.style}
+                        autoComplete="username"
+                        />;
+                    break;
                 case('password'):
                     inputElement = <input
                         {...props.elementConfig}
@@ -38,6 +55,7 @@ const Input = ( props ) => {
                         value={props.value}
                         onChange={props.changed}
                         style={props.style}
+                        autoComplete="current-password"
                         />;
                     break;
                 default:
