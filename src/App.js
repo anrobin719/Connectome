@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import * as actions from './store/actions/index';
 import { HomePage, ListPage, PostPage, EditPage, NotFoundPage } from './pages';
-import Base from './containers/common/Base';
-
-import './App.scss';
 import Layout from './hoc/Layout/Layout';
+import Base from './containers/common/Base';
+import './App.scss';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onCheckAuth();
+  }
+
   render() {
     return (
       <Layout>
@@ -25,4 +30,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    onCheckAuth: () => dispatch(actions.checkAuth())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

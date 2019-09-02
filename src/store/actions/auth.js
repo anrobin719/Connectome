@@ -24,6 +24,24 @@ export const authFail = (errorMessage) => {
     }
 }
 
+export const authLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('email');
+    localStorage.removeItem('expirationDate');
+    return {
+        type: actionTypes.AUTH_LOGOUT
+    }
+}
+
+export const checkAuthTimeOut = (expirationTime) => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(authLogout())
+        }, expirationTime * 1000);
+    }
+}
+
 export const auth = ( authForm ) => {
     return dispatch => {
         dispatch( authStart() );
@@ -38,7 +56,7 @@ export const auth = ( authForm ) => {
             password: authForm.password,
             returnSecureToken: true
         }
-
+        
         // 회원가입
         axios.post(url, authData)
             .then(res => {
@@ -56,10 +74,32 @@ export const auth = ( authForm ) => {
                 localStorage.setItem('token', res.data.idToken);
                 localStorage.setItem('userId', res.data.localId);
                 localStorage.setItem('email', res.data.email);
+                const expirationDate = new Date(new Date().getTime() + res.data.expiresIn * 1000);
+                localStorage.setItem('expirationDate', expirationDate);
+                dispatch( checkAuthTimeOut(res.data.expiresIn) );
             })
             .catch(err => {
                 console.log(err.response);
                 dispatch(authFail(err.response.data.error.message))
             });
+    }
+}
+
+export const checkAuth = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        if(!token) {
+            dispatch( authLogout() );
+        } else {
+            const expirationDate = new Date(localStorage.getItem('expirationDate'));
+            if(expirationDate <= new Date()) {
+                dispatch( authLogout() );
+            } else {
+                const userId = localStorage.getItem('userId');
+                const email = localStorage.getItem('email');
+                dispatch( authSuccess(token, userId, email) );
+                dispatch( checkAuthTimeOut((expirationDate.getTime() - new Date().getTime()) / 1000 ));
+            }
+        }
     }
 }

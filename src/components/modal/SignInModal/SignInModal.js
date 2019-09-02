@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
+import { updateObject, checkValidity } from '../../../shared/utility';
 import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
 import Modal from '../../UI/Modal/Modal';
+import Loading from '../../UI/Loading/Loading';
 import classes from './SignInModal.scss';
-import { updateObject, checkValidity } from '../../../shared/utility';
 
 class SignInModal extends Component {
     state = {
@@ -90,11 +91,12 @@ class SignInModal extends Component {
         const { show, cancelHandler, loading, error } = this.props;
         return (
             <Modal show={show} modalClosed={cancelHandler}>
+                {loading ? <Loading extraClass="fit"/> : null}
                 <div className={classes.SignIn}>
                     <form onSubmit={this.signInSubmit}>
                         <h4>로그인</h4>
                         {form}
-                        { error ? <div>{error}</div> : null }
+                        { error ? <div className={classes.errorMessage}>{error}</div> : null }
                         <div className={classes.btnBox}>
                             <Button theme="invert-big">로그인하기</Button>
                         </div>

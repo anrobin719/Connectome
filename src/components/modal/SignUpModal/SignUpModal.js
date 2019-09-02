@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
+import { updateObject, checkValidity } from '../../../shared/utility';
 import Input from '../../UI/Input/Input';
 import Button from '../../UI/Button/Button';
-import { updateObject, checkValidity } from '../../../shared/utility';
-import classes from './SignUpModal.scss';
 import Modal from '../../UI/Modal/Modal';
+import Loading from '../../UI/Loading/Loading';
+import classes from './SignUpModal.scss';
 
 class SignUpModal extends Component {
     state = {
@@ -121,11 +122,12 @@ class SignUpModal extends Component {
         const { show, cancelHandler, loading, error} = this.props;
         return (
             <Modal show={show} modalClosed={cancelHandler}>
+                {loading ? <Loading extraClass="fit"/> : null}
                 <div className={classes.SignUp}>
                     <form onSubmit={this.signUpSubmit}>
                         <h4>회원가입</h4>
                         {form}
-                        { error ? <div>{error}</div> : null }
+                        { error ? <div className={classes.errorMessage}>{error}</div> : null }
                         <div className={classes.btnBox}>
                             <Button theme="invert-big">회원가입하기</Button>
                         </div>

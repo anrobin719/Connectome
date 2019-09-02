@@ -2,4 +2,4 @@ export { initialize, changeInput, changeFile, writePost, editorGetPost, editPost
 export { getPost, removePost } from './post';
 export { getPostList } from './list';
 export { showModal, hideModal } from './base';
-export { auth } from './auth';
+export { auth, authLogout, checkAuth } from './auth';
