@@ -5,7 +5,6 @@ import PostCards from '../containers/list/PostCards/PostCards';
 
 const ListPage = ({match}) => {
     const { search } = match.params;
-    console.log(search);
     return (
         <Fragment>
             <SearchBanner />

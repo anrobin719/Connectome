@@ -9,8 +9,9 @@ import classes from './PostCards.scss';
 class PostCards extends Component {
 
     componentDidMount() {
-        const { search, onGetPostList } = this.props;
+        const { search, onGetPostList, onSetPostList, posts } = this.props;
         !search && onGetPostList()
+        // search ? onSetPostList(search, posts) : onGetPostList();
     }
 
     render() {
@@ -34,6 +35,8 @@ class PostCards extends Component {
                         />
                     );
                 });
+        
+        // 검색어가 있을 때
         if (search) {
             postCards = filteredPosts.map(post => {
                 const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
@@ -74,7 +77,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onGetPostList: () => dispatch(actions.getPostList()),
-        onSetPostList: (search) => dispatch(actions.setPostList(search))
+        onSetPostList: (searchValue, postsSize) => dispatch(actions.setPostList(searchValue, postsSize))
     }
 }
 

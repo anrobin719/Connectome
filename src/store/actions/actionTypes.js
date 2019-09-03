@@ -36,7 +36,4 @@ export const AUTH_FAIL = 'AUTH_FAIL';
 
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 
-// export const SET_POST_LIST_START = 'SET_POST_LIST_START';
-// export const SET_POST_LIST_SUCCESS = 'SET_POST_LIST_SUCCESS';
-// export const SET_POST_LIST_FAIL = 'SET_POST_LIST_FAIL';
-export const SET_POST_LIST = 'SET_POST_LIST';
+export const SET_POST_LIST_SUCCESS = 'SET_POST_LIST_SUCCESS';

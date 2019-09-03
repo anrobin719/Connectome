@@ -42,51 +42,35 @@ export const getPostList = () => {
     }
 }
 
-
-// export const setPostListStart = () => {
-//     return {
-//         type: actionTypes.SET_POST_LIST_START
-//     }
-// }
-
-// export const setPostListSuccess = (data) => {
-//     return {
-//         type: actionTypes.SET_POST_LIST_SUCCESS,
-//         data: data
-//     }
-// }
-
-// export const setPostListFail = () => {
-//     return {
-//         type: actionTypes.SET_POST_LIST_FAIL
-//     }
-// }
-
-// export const setPostList = (searchValue) => {
-//     return dispatch => {
-//         dispatch( setPostListStart() );
-//         axios.get(`/post.json?orderBy="title"&equalTo="${searchValue}"`)
-//             .then(res => {
-//                 const fetchedPosts = [];
-//                 for ( let key in res.data ) {
-//                     fetchedPosts.push( {
-//                         ...res.data[key],
-//                         id: key
-//                     } );
-//                 }
-//                 dispatch( setPostListSuccess(fetchedPosts) );
-//                 console.log('SET_POST_LIST_SUCCESS', fetchedPosts);
-//             })
-//             .catch(err => {
-//                 dispatch( setPostListFail() );
-//                 console.log('SET_POST_LIST_FAIL', err);
-//             });
-//     }
-// }
-
-export const setPostList = (filteredPosts) => {
+export const setPostListSuccess = (data) => {
     return {
-        type: actionTypes.SET_POST_LIST,
-        data: filteredPosts
+        type: actionTypes.SET_POST_LIST_SUCCESS,
+        data: data
+    }
+}
+
+export const setPostList = (searchValue, posts) => {
+    return dispatch => {
+        if(posts.size === 0) {
+            dispatch( getPostList() );
+            // // filteredPosts 필터링해 화면에 불러오기
+            // let filteredPosts = null;
+            // if (searchValue.length > 0) {
+            //     filteredPosts = posts.filter(post => {
+            //         return post.toJS().title.match(searchValue);
+            //     });
+            // }
+            // dispatch( setPostListSuccess(filteredPosts) );
+            // console.log('GET POST AND SET POST LIST SUCCESS', filteredPosts);
+        } else {
+            let filteredPosts = null;
+            if (searchValue.length > 0) {
+                filteredPosts = posts.filter(post => {
+                    return post.toJS().title.match(searchValue);
+                });
+            }
+            dispatch( setPostListSuccess(filteredPosts) );
+            console.log('SET_POST_LIST_SUCCESS', filteredPosts);
+        }
     }
 }
