@@ -7,9 +7,10 @@ import * as actions from '../../store/actions/index';
 
 class ToolbarContainer extends Component {
     submitHandler = searchValue => {
-        const { history, onSetPostList, posts } = this.props;
-        history.push(`/list/${searchValue}`);
-        onSetPostList(searchValue, posts);
+        const { history } = this.props;
+        if (searchValue.length !== 0) {
+            history.push(`/list/${searchValue}`);
+        }
     }
 
     render() {
@@ -27,16 +28,14 @@ class ToolbarContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        isAuthenticated: state.auth.token !== null,
-        posts: state.list.get('posts')
+        isAuthenticated: state.auth.token !== null
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onShowModal: (modalName) => dispatch(actions.showModal(modalName)),
-        onLogout: () => dispatch(actions.authLogout()),
-        onSetPostList: (filteredPosts, posts) => dispatch(actions.setPostList(filteredPosts, posts))
+        onLogout: () => dispatch(actions.authLogout())
     }
 }
 

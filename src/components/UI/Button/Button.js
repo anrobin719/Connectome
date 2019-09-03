@@ -6,10 +6,10 @@ import classes from './Button.scss';
 
 const cx = classNames.bind(classes);
 
-const Div = ({children, ...rest}) => <button {...rest}>{children}</button>;
+const button = ({children, ...rest}) => <button {...rest}>{children}</button>;
 
-const Button = ({children, to, onClick, disabled, theme, extraStyle}) => {
-    const Element = (to && !disabled) ? Link : Div;
+const Button = ({children, to, onClick, disabled, theme, extraStyle, type}) => {
+    const Element = (to && !disabled) ? Link : button;
 
     return (
         <Element

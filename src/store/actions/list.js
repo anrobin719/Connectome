@@ -49,7 +49,7 @@ export const setPostListSuccess = (data) => {
     }
 }
 
-export const setPostList = (searchValue, posts) => {
+export const setPostListViaTitle = (searchValue, posts) => {
     return dispatch => {
         if(posts.size === 0) {
             dispatch( getPostList() );
@@ -63,5 +63,27 @@ export const setPostList = (searchValue, posts) => {
             dispatch( setPostListSuccess(filteredPosts) );
             console.log('SET_POST_LIST_SUCCESS', filteredPosts);
         }
+    }
+}
+
+export const setPostListViaTags = (myTalentValue, yourTalentValue, posts) => {
+    return dispatch => {
+        if(posts.size === 0) {
+            dispatch( getPostList() );
+        }
+        // post를 가져온 후 아래 코드를 실행하도록 비동기처리
+        let filteredPosts = null;
+        if (myTalentValue.length > 0 || yourTalentValue.length > 0) {
+            filteredPosts = posts.filter(post => {
+                return post.toJS().myTalent.match(myTalentValue);
+            });
+            if (yourTalentValue != 0) {
+                filteredPosts = filteredPosts.filter(post => {
+                    return post.toJS().yourTalent.match(yourTalentValue);
+                })
+            }
+        }
+        dispatch( setPostListSuccess(filteredPosts) );
+        console.log('SET_POST_LIST_SUCCESS', filteredPosts);
     }
 }

@@ -18,7 +18,7 @@ class PostContainer extends Component {
 
     removePostHandler = async () => {
         await this.props.onRemovePost(this.props.id);
-        this.props.history.push('/list/1');
+        this.props.history.push('/list');
     }
 
     applyHandler = () => {

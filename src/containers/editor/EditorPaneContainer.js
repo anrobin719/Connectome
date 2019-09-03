@@ -42,6 +42,7 @@ class EditorPaneContainer extends Component {
         const newPostpublishedDate = new Date();
         const newPostData = {
             ...postData,
+            authorId: localStorage.getItem('userId'),
             publishedDate: newPostpublishedDate
         };
 

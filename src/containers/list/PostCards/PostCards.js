@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import * as actions from '../../../store/actions/index';
 import PostCard from '../../../components/list/PostCard/PostCard';
@@ -9,13 +10,35 @@ import classes from './PostCards.scss';
 class PostCards extends Component {
 
     componentDidMount() {
-        const { onGetPostList } = this.props;
-        onGetPostList()
-        // search ? onSetPostList(search, posts) : onGetPostList();
+        const { search, tag1, tag2, posts, onSetPostListViaTitle, onSetPostListViaTags, onGetPostList } = this.props;
+        if (search || tag1) {
+            if (search) {
+                onSetPostListViaTitle(search, posts);
+            } else {
+                onSetPostListViaTags(tag1, tag2, posts);
+            }
+        } else {
+            onGetPostList();
+        }
+    }
+
+    componentDidUpdate(nextProps, nextState) {
+        const { location, search, tag1, tag2, posts, onSetPostListViaTitle, onSetPostListViaTags, onGetPostList } = this.props;
+        if(location !== nextProps.location) {
+            if (search || tag1) {
+                if (search) {
+                    onSetPostListViaTitle(search, posts);
+                } else {
+                    onSetPostListViaTags(tag1, tag2, posts);
+                }
+            } else {
+                onGetPostList();
+            }
+        }
     }
 
     render() {
-        const { posts, filteredPosts, loading, search } = this.props;
+        const { posts, filteredPosts, loading, search, tag1, tag2 } = this.props;
         
         if(loading) return <Loading />;
 
@@ -37,7 +60,7 @@ class PostCards extends Component {
                 });
         
         // param이 바뀌고, 필터된 포스트가 있을 때
-        if (search && filteredPosts.size !== 0) {
+        if ((search || tag1 || tag2) && filteredPosts.size !== 0) {
             postCards = filteredPosts.map(post => {
                 const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
                 return (
@@ -60,7 +83,7 @@ class PostCards extends Component {
 
         return (
             <Fragment>
-            { search && filteredPosts.size === 0 ? <div className={classes.searchArr}>검색 결과가 없습니다.</div> : (
+            { (search || tag1 || tag2) && filteredPosts.size === 0 ? <div className={classes.searchArr}>검색 결과가 없습니다.</div> : (
                 <div className={classes.PostCards}>
                     {postCards}
                 </div>
@@ -80,8 +103,10 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onGetPostList: () => dispatch(actions.getPostList())
+        onGetPostList: () => dispatch(actions.getPostList()),
+        onSetPostListViaTitle: (searchVal, posts) => dispatch(actions.setPostListViaTitle(searchVal, posts)),
+        onSetPostListViaTags: (tag1, tag2, posts) => dispatch(actions.setPostListViaTags(tag1, tag2, posts))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostCards);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PostCards));
