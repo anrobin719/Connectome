@@ -21,6 +21,15 @@ class PostContainer extends Component {
         this.props.history.push('/list/1');
     }
 
+    applyHandler = () => {
+        const { isAuthenticated, onShow } = this.props;
+        if(isAuthenticated) {
+            onShow('apply');
+        } else {
+            onShow('askSignIn');
+        }
+    }
+
     render() {
         const { title, sub, myTalent, yourTalent, body, img, publishedDate } = this.props.post.toJS();
         
@@ -38,6 +47,7 @@ class PostContainer extends Component {
                     img={img}
                     publishedDate={publishedDate}
                     removePostHandler={this.removePostHandler}
+                    applyHandler={this.applyHandler}
                 />
             </div>
         );
@@ -48,7 +58,8 @@ const mapStateToProps = state => {
     return {
         post: state.post.get('post'),
         loading: state.post.get('loading'),
-        error: state.post.error
+        error: state.post.error,
+        isAuthenticated: state.auth.token !== null
     };
 };
 
@@ -56,7 +67,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onGetPost: (id) => dispatch(actions.getPost(id)),
         onRemovePost: (id) => dispatch(actions.removePost(id)),
-        onEditPost: () => dispatch()
+        onShow: (modalName) => dispatch(actions.showModal(modalName))
     }
 }
 

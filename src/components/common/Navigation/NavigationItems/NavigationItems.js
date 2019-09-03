@@ -7,7 +7,9 @@ const NavigationItems = ({onShowModal, onLogout, isAuthenticated}) => {
     return (
         <ul className={classes.NavigationItems}>
             <NavigationItem link="/list" exact>재능 교환</NavigationItem>
-            <NavigationItem link="/edit" exact>새글 작성</NavigationItem>
+
+            {isAuthenticated ? <NavigationItem link="/edit" exact>새글 작성</NavigationItem>
+            : <Button onClick={() => onShowModal('askSignIn')} theme="nav">새글 작성</Button>}
 
             {isAuthenticated ? (
                 <Button onClick={onLogout} theme="nav">

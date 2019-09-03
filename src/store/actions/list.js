@@ -53,15 +53,6 @@ export const setPostList = (searchValue, posts) => {
     return dispatch => {
         if(posts.size === 0) {
             dispatch( getPostList() );
-            // // filteredPosts 필터링해 화면에 불러오기
-            // let filteredPosts = null;
-            // if (searchValue.length > 0) {
-            //     filteredPosts = posts.filter(post => {
-            //         return post.toJS().title.match(searchValue);
-            //     });
-            // }
-            // dispatch( setPostListSuccess(filteredPosts) );
-            // console.log('GET POST AND SET POST LIST SUCCESS', filteredPosts);
         } else {
             let filteredPosts = null;
             if (searchValue.length > 0) {

@@ -7,8 +7,7 @@ import Button from '../../UI/Button/Button';
 import PostBody from '../PostBody/PostBody';
 import classes from './Post.scss';
 
-const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, removePostHandler, id }) => {
-
+const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, removePostHandler, applyHandler, id }) => {
     return (
         <div className={classes.Post}>
             <section className={classes.postHead}>
@@ -24,7 +23,7 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
                         <p>{sub}</p>
                     </div>
                     <div className={classes.headContentBtnBox}>
-                        <Button extraStyle={{height: '3rem'}} to="/" theme="invert-full">재능 교환하기</Button>
+                        <Button extraStyle={{height: '3rem'}} onClick={applyHandler} theme="invert-full">재능 교환하기</Button>
                     </div>
                 </div>
             </section>
@@ -46,7 +45,7 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
                     </div>
 
                     <div className={classes.bodyContentBtnBox}>
-                        <Button to="/" theme="outline-big">재능 교환하기</Button>
+                        <Button onClick={applyHandler} theme="outline-big">재능 교환하기</Button>
                     </div>
                 </div>
                 {/* 본문 오른쪽 정보 영역 */}

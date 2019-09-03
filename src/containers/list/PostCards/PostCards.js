@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../../store/actions/index';
@@ -9,8 +9,8 @@ import classes from './PostCards.scss';
 class PostCards extends Component {
 
     componentDidMount() {
-        const { search, onGetPostList, onSetPostList, posts } = this.props;
-        !search && onGetPostList()
+        const { onGetPostList } = this.props;
+        onGetPostList()
         // search ? onSetPostList(search, posts) : onGetPostList();
     }
 
@@ -36,8 +36,8 @@ class PostCards extends Component {
                     );
                 });
         
-        // 검색어가 있을 때
-        if (search) {
+        // param이 바뀌고, 필터된 포스트가 있을 때
+        if (search && filteredPosts.size !== 0) {
             postCards = filteredPosts.map(post => {
                 const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
                 return (
@@ -59,9 +59,13 @@ class PostCards extends Component {
         
 
         return (
-            <div className={classes.PostCards}>
-                {postCards}
-            </div>
+            <Fragment>
+            { search && filteredPosts.size === 0 ? <div className={classes.searchArr}>검색 결과가 없습니다.</div> : (
+                <div className={classes.PostCards}>
+                    {postCards}
+                </div>
+            )}
+            </Fragment>
         );
     }
 };
@@ -76,8 +80,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onGetPostList: () => dispatch(actions.getPostList()),
-        onSetPostList: (searchValue, postsSize) => dispatch(actions.setPostList(searchValue, postsSize))
+        onGetPostList: () => dispatch(actions.getPostList())
     }
 }
 

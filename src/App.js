@@ -14,9 +14,19 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <Layout>
-        <Base />
+    const { isAuthenticated } = this.props;
+    let routes = (
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/list" component={ListPage} />
+        <Route path="/list/:search" component={ListPage} />
+        <Route path="/list/:tag" component={ListPage} />
+        <Route path="/post/:id" component={PostPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    );
+    if (isAuthenticated) {
+      routes = (
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/list" component={ListPage} />
@@ -26,8 +36,20 @@ class App extends Component {
           <Route path="/edit" component={EditPage} />
           <Route component={NotFoundPage} />
         </Switch>
+      )
+    }
+    return (
+      <Layout>
+        <Base />
+        {routes}
       </Layout>
     );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null
   }
 }
 
@@ -37,4 +59,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

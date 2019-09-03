@@ -3,9 +3,11 @@ import { Map } from 'immutable';
 
 const initialState = Map({
     modal: Map({
-        remove: false,
         signIn: false,
-        signUp: false
+        signUp: false,
+        askSignIn: false,
+        apply: false,
+        remove: false,
     })
 });
 
