@@ -27,7 +27,7 @@ class EditorPaneContainer extends Component {
     }
 
     submitPostHandler = async () => {
-        const { title, sub, myTalent, yourTalent, body, img, publishedDate, onSubmitPost, onEditPost, history, location } = this.props;
+        const { history, location, title, sub, myTalent, yourTalent, body, img, publishedDate, onSubmitPost, onEditPost, userId } = this.props;
         const { id } = queryString.parse(location.search);
         const postData = {
             title: title,
@@ -42,7 +42,7 @@ class EditorPaneContainer extends Component {
         const newPostpublishedDate = new Date();
         const newPostData = {
             ...postData,
-            authorId: localStorage.getItem('userId'),
+            authorId: userId,
             publishedDate: newPostpublishedDate
         };
 
@@ -93,7 +93,8 @@ const mapStateToProps = state => {
         publishedDate: state.editor.publishedDate,
         postId: state.editor.postId,
         loading: state.editor.loading,
-        error: state.editor.error
+        error: state.editor.error,
+        userId: state.auth.userId
     };
 };
 

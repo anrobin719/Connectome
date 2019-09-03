@@ -31,7 +31,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/list" component={ListPage} />
           <Route path="/list/:search" component={ListPage} />
-          <Route path="/list/:tag" component={ListPage} />
+          <Route path="/tag/:tag1/:tag2?" component={ListPage} />
           <Route path="/post/:id" component={PostPage} />
           <Route path="/edit" component={EditPage} />
           <Route component={NotFoundPage} />
