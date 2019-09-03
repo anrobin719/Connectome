@@ -9,29 +9,51 @@ import classes from './PostCards.scss';
 class PostCards extends Component {
 
     componentDidMount() {
-        this.props.onGetPostList();
+        const { search, onGetPostList } = this.props;
+        !search && onGetPostList()
     }
 
     render() {
-        const { posts, loading } = this.props;
+        const { posts, filteredPosts, loading, search } = this.props;
         
         if(loading) return <Loading />;
 
-        const postCards = posts.map(post => {
-            const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
-            return (
-                <PostCard
-                    key={id}
-                    id={id}
-                    title={title}
-                    sub={sub}
-                    img={img}
-                    publishedDate={publishedDate}
-                    myTalent={myTalent}
-                    yourTalent={yourTalent}
-                />
-            );
-        });
+
+        let postCards = posts.map(post => {
+                    const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
+                    return (
+                        <PostCard
+                            key={id}
+                            id={id}
+                            title={title}
+                            sub={sub}
+                            img={img}
+                            publishedDate={publishedDate}
+                            myTalent={myTalent}
+                            yourTalent={yourTalent}
+                        />
+                    );
+                });
+        if (search) {
+            postCards = filteredPosts.map(post => {
+                const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
+                return (
+                    <PostCard
+                        key={id}
+                        id={id}
+                        title={title}
+                        sub={sub}
+                        img={img}
+                        publishedDate={publishedDate}
+                        myTalent={myTalent}
+                        yourTalent={yourTalent}
+                    />
+                );
+            });
+        }
+            
+            
+        
 
         return (
             <div className={classes.PostCards}>
@@ -45,12 +67,14 @@ class PostCards extends Component {
 const mapStateToProps = state => {
     return {
         posts: state.list.get('posts'),
+        filteredPosts: state.list.get('filteredPosts'),
         loading: state.list.get('loading')
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onGetPostList: () => dispatch(actions.getPostList())
+        onGetPostList: () => dispatch(actions.getPostList()),
+        onSetPostList: (search) => dispatch(actions.setPostList(search))
     }
 }
 

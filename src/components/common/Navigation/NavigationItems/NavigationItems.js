@@ -6,7 +6,7 @@ import Button from '../../../UI/Button/Button';
 const NavigationItems = ({onShowModal, onLogout, isAuthenticated}) => {
     return (
         <ul className={classes.NavigationItems}>
-            <NavigationItem link="/page/:page" exact>재능 교환</NavigationItem>
+            <NavigationItem link="/list" exact>재능 교환</NavigationItem>
             <NavigationItem link="/edit" exact>새글 작성</NavigationItem>
 
             {isAuthenticated ? (

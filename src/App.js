@@ -19,8 +19,9 @@ class App extends Component {
         <Base />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/page/:page" component={ListPage} />
-          <Route path="/tag/:tag/:page?" component={ListPage} />
+          <Route exact path="/list" component={ListPage} />
+          <Route path="/list/:search" component={ListPage} />
+          <Route path="/list/:tag" component={ListPage} />
           <Route path="/post/:id" component={PostPage} />
           <Route path="/edit" component={EditPage} />
           <Route component={NotFoundPage} />
