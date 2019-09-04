@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import Button from '../../UI/Button/Button';
 import PostBody from '../PostBody/PostBody';
 import classes from './Post.scss';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, removePostHandler, applyHandler, id }) => {
     return (
@@ -13,9 +15,8 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
             <section className={classes.postHead}>
                 {/* 사진 영역 */}
                 <div className={classes.headImg}>
-                    <CardImg img={img}/>
+                    <CardImg img={img} className={classes.headImg}/>
                 </div>
-                
                 {/* 사진 오른쪽 소개 영역 */}
                 <div className={classes.headContent}>
                     <div className={classes.headContentTitleBox}>
@@ -27,6 +28,7 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
                     </div>
                 </div>
             </section>
+            
             <section className={classes.postBody}>
                 {/* 본문 영역 */}
                 <div className={classes.bodyContent}>
@@ -35,13 +37,18 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
                         <div className={classes.talent}>보유재능 {myTalent}&nbsp; &nbsp;〉 희망재능 {yourTalent}</div>
                     </div>
                     {/* 본문 - html 렌더링 영역 */}
-                    <PostBody body={body}/>
+                    <div className={classes.bodyBox}>
+                        <PostBody body={body}/>
+                    </div>
 
                     <div className={classes.ctrBox}>
+                        <div>
+                            <Link to={`/edit?id=${id}`}><EditIcon/></Link>
+                        </div>
+                        <div>
+                            <button onClick={removePostHandler}><DeleteIcon/></button>
+                        </div>
                         <p>{moment(publishedDate).format('lll')}</p>
-                        {/* <button onClick={editPostHandler}>수정</button> */}
-                        <Link to={`/edit?id=${id}`}>수정</Link>
-                        <button onClick={removePostHandler}>삭제</button>
                     </div>
 
                     <div className={classes.bodyContentBtnBox}>
@@ -66,8 +73,8 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
 };
 
 const CardImg = styled.div`
-    width: auto;
-    height: 100%;
+    width: 100%;
+    padding-bottom: 60%;
     background: url(${props => props.img}) no-repeat center/cover;
 `;
 

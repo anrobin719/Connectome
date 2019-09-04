@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Banner.scss';
 import PageWrapper from '../../../hoc/PageWrapper/PageWrapper';
 import Button from '../../UI/Button/Button';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
 const Banner = () => {
     return (
@@ -14,7 +15,8 @@ const Banner = () => {
                             가장 쉬운 방법
                         </h2>
                         <div>
-                            <Button to="/edit" theme="point-big">재능 교환하기</Button>
+                            <Button to="/list" theme="point">재능 교환하기<NavigateNextIcon/></Button>
+                            <Button to="/list" theme="point-big">재능 교환하기</Button>
                         </div>
                     </div>
                 </div>

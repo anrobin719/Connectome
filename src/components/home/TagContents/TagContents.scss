@@ -14,8 +14,6 @@
     }
 
     @include media('<small') {
-        height: 180px;
         width: 100%;
-        overflow: visible;
     }
 }

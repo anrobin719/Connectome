@@ -12,17 +12,29 @@
         // 왼쪽 열
         .headImg,
         .bodyContent {
-            display: flex;
-            flex: .78;
-            flex-direction: column;
+            flex: 0 0 72%;
         }
 
         // 오른쪽 열
         .headContent,
         .bodyInfo {
-            display: flex;
-            flex: .2;
-            flex-direction: column;
+            flex: 0 0 26%;
+        }
+        
+        @include media('<large') {
+            // 왼쪽 열
+            .headImg,
+            .bodyContent {
+                flex: 0 0 62%;
+            }
+            // 오른쪽 열
+            .headContent,
+            .bodyInfo {
+                flex: 0 0 36%;
+            }
+        }
+        @include media('<medium') {
+            display: block;
         }
     }
 
@@ -30,14 +42,14 @@
     // 첫번째 행
     .postHead {
         .headImg {
-            height: 50vh;
+            // width: 100%;
         }
         .headContent {
-            height: 50vh;
-            border-top: 3px solid $c-primary;
-            box-sizing: border-box;
+            // width: 100%;
             position: relative;
-            
+            // outline: 1px solid cyan;
+            border-top: 3px solid $c-primary;
+                
             .headContentTitleBox {
                 padding: 0 .5rem;
                 h2 {
@@ -56,6 +68,24 @@
                 bottom: 0;
             }
         }
+        @include media('<medium') {
+            .headContent {
+                position: static;
+                border: none;
+                .headContentTitleBox {
+                    padding: 0 .5rem;
+                    h2 {
+                        font-size: 1.6rem;
+                    }
+                }
+                // button
+                .headContentBtnBox {
+                    position: static;
+                    margin-top: 2rem;
+                }
+            }
+        }
+        
     }
 
 
@@ -65,8 +95,11 @@
         padding-top: 2rem;
         padding-bottom: 12rem;
         box-sizing: border-box;
-
+        
         .bodyContent {
+            height: auto;
+            position: relative;
+
             h2 {
                 font-size: 2rem;
                 font-weight: 600;
@@ -79,45 +112,43 @@
                 margin-bottom: 2rem;
             }
 
+            .bodyBox {
+                width: 100%;
+                padding-bottom: 16rem;
+            }
+
             // control buttons: edit, delete post function + published date
             .ctrBox {
-                margin-top: 3rem;
-                display: inline-block;
                 text-align: right;
+                display: inline-block;
+                position: absolute;
+                bottom: 4rem;
+                // transform: translateY(100%);
+                right: 0;
+
                 p {
                     color: $oc-gray-4;
                     font-size: .8rem;
                     font-weight: 400;
                 }
-                a,
-                button {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
+
+                div {
                     display: inline-block;
-                    font-size: .8rem;
-                    font-weight: 400;
-                    height: 2.4rem;
-                    width: 2.4rem;
-                    margin-top: 1rem;
-                    margin-left: .3rem;
-                    border: none;
-                    background-color: $oc-gray-1;
+                    margin-bottom: .3rem;
+                    margin-left: .3rem; 
                     color: $oc-gray-6;
-                    outline: none;
-                    cursor: pointer;
-                    border-radius: 50%;
+                    button {
+                        color: $oc-gray-6;
+                    }
                 }
             }
 
             // button
             .bodyContentBtnBox {
-                display: flex;
-                justify-content: center;
-                margin-top: 6rem;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
         .bodyInfo {
@@ -131,6 +162,31 @@
                 }
             }
         }
+        @include media('<medium') {
+            .bodyContent {
+                h2 {
+                    display: none;
+                }
+                .ctrBox {
+                    .bodyContentBtnBox {
+                        position: static;
+                    }
+                }
+            }
+            .bodyInfo {
+                .bodyInfoContentBox {
+                    margin-top: 4rem;
+                }
+            }
+        }
+        @include media('<small') {
+            .bodyContent {
+                .ctrBox {
+                    p {
+                        display: none;
+                    }
+                }
+            }
+        }
     }
-    
 }

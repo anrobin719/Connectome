@@ -15,11 +15,38 @@
         .bannerContent {
             width: 100%;
             h2 {
-                margin-bottom: 1rem;
+                margin-bottom: 1.2rem;
                 color: white;
-                font-size: 2.6rem;
+                font-size: 2.4rem;
                 font-weight: 700;
-                line-height: 3.4rem;
+                line-height: 3.2rem;
+            }
+            div {
+                a:first-child {
+                    display: none;
+                }
+            }
+
+            @include media('<small') {
+                h2 {
+                    font-size: 2rem;
+                    line-height: 2.8rem;
+                }
+                div {
+                    position: relative;
+                    a:first-child {
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        left: 0;
+                        svg {
+                            font-size: 1.2rem;
+                        }
+                    }
+                    a:last-child {
+                        display: none;
+                    }
+                }
             }
         }
     }
