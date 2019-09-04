@@ -2,12 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import ExchangeInfo from '../../components/mypage/ExchangeInfo/ExchangeInfo';
+import { updateObject } from '../../shared/utility';
 import * as actions from '../../store/actions/index';
 
 class ExchangeInfoContainer extends Component {
     componentDidMount() {
         const { onFetchExchange, userId } = this.props;
         onFetchExchange(userId);
+    }
+
+    acceptHandler = (bookingId, booking) => {
+        console.log(booking);
+        const updatedBooking = updateObject(booking, {
+            status: "Accepted!"
+        });
+        this.props.onAcceptBooking(bookingId, updatedBooking)
     }
 
     render() {
@@ -17,6 +26,7 @@ class ExchangeInfoContainer extends Component {
                 applied={applied}
                 received={received}
                 loading={loading}
+                acceptHandler={this.acceptHandler}
             />
         );
     }
@@ -34,7 +44,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchExchange: (userId) => dispatch(actions.fetchExchange(userId))
+        onFetchExchange: (userId) => dispatch(actions.fetchExchange(userId)),
+        onAcceptBooking: (bookingId, updatedBooking) => dispatch(actions.acceptBooking(bookingId, updatedBooking))
     }
 }
 

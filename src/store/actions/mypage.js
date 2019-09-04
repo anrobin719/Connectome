@@ -29,7 +29,7 @@ export const applyExchange = (postId, userId, authorId, title, userEmail) => {
             accepterId: authorId,
             applicantId: userId,
             applicantEmail: userEmail,
-            status: 'progress...'
+            status: 'progress..'
         }
         axios.post(`/booking.json`, bookingData)
             .then(res => {
@@ -107,6 +107,39 @@ export const fetchExchange = (userId) => {
             .catch(err => {
                 console.log('booking fetch error');
                 dispatch( fetchExchangeFail() );
+            });
+    }
+}
+
+export const acceptBookingStart = () => {
+    return {
+        type: actionTypes.ACCEPT_BOOKING_START
+    }
+}
+
+export const acceptBookingSuccess = () => {
+    return {
+        type: actionTypes.ACCEPT_BOOKING_SUCCESS
+    }
+}
+
+export const acceptBookingFail = () => {
+    return {
+        type: actionTypes.ACCEPT_BOOKING_FAIL
+    }
+}
+
+export const acceptBooking = (bookingId, updatedBooking) => {
+    return dispatch => {
+        dispatch( acceptBookingStart() );
+        axios.put(`/booking/${bookingId}.json`, updatedBooking)
+            .then(res => {
+                console.log('ACCEPT_BOOKING_SUCCESS', res);
+                dispatch( acceptBookingSuccess() );
+            })
+            .catch(err => {
+                console.log('ACCEPT_BOOKING_FAIL', err);
+                dispatch( acceptBookingFail() );
             });
     }
 }

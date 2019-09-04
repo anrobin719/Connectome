@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Button from '../../UI/Button/Button';
 import Loading from '../../UI/Loading/Loading';
 import classes from './ExchangeInfo.scss';
 
-const ExchangeInfo = ({ applied, received, loading }) => {
+const ExchangeInfo = ({ applied, received, loading, acceptHandler }) => {
     const appliedList = applied.map(booking => {
         return (
             <div className={classes.list} key={booking.bookingId}>
@@ -14,11 +14,17 @@ const ExchangeInfo = ({ applied, received, loading }) => {
         );
     });
     const receivedList = received.map(booking => {
+        let acceptBtn = null;
+        if(booking.status !== "Accepted!") {
+            acceptBtn = <Button theme="invert" onClick={() => acceptHandler(booking.bookingId, booking)}>수락하기</Button>
+        } else {
+            acceptBtn = <Button theme="disabled">수락완료</Button>
+        }
         return (
             <div className={classes.list} key={booking.bookingId}>
                 <h4>{booking.postTitle}</h4>
                 <p>신청자 이메일 :&nbsp;{booking.applicantEmail}</p>
-                <Button theme="invert">수락하기</Button>
+                {acceptBtn}
             </div>
         );
     });
