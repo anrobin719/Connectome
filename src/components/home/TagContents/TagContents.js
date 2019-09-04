@@ -5,7 +5,6 @@ import classes from './TagContents.scss';
 const TagContents = () => {
     return (
         <div className={classes.TagContents}>
-            {/* home 화면일때만 다음 문장 표시 */}
             <h4>어떤 성장이 필요하신가요?</h4>
 
             <div className={classes.tagContentsBox}>

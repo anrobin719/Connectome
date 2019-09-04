@@ -1,4 +1,4 @@
-@import '../../../styles/lib/utils.scss';
+@import '../../../../styles/lib/utils.scss';
 
 .Toolbar {
     height: 64px;
@@ -13,21 +13,34 @@
     box-sizing: border-box;
     z-index: 100;
     
+    @include media('<small') {
+        padding: 0 1rem;
+    }
+
     .content {
         height: 100%;
         display: flex;
         align-items: center;
         font-size: 1.2rem;
+        position: relative;
 
         // logo
         a {
             color: $c-primary;
+            span:last-child {
+                @include media('<small') {
+                    display: none;
+                }
+            }
         }
 
         .search {
             position: relative;
-            margin-left: 32px;
+            margin-left: 2rem;
             width: auto;
+            @include media('<small') {
+                margin-left: 1rem;
+            }
             .searchIcon {
                 width: auto;
                 height: 100%;
@@ -58,15 +71,35 @@
                     background-color: rgba($c-primary, 0.08);
                 }
                 &:focus {
-                    width: 280px;
+                    width: 230px;
                     outline: none;
                 }
+            }
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            svg {
+                font-size: 2rem;
+            }
+            @include media('>medium') {
+                display: none;
             }
         }
 
         .navItems {
             height: 100%;
             margin-left: auto;
+        }
+
+        @include media('<medium') {
+            .desktopOnly {
+                display: none;
+            }
         }
     }
 }

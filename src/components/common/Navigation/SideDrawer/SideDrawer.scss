@@ -1,0 +1,32 @@
+@import '../../../../styles/lib/utils.scss';
+
+.SideDrawer {
+    position: fixed;
+    max-width: 80%;
+    width: 360px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    z-index: 300;
+    background-color: white;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+
+    @include media('>medium') {
+        display: none;
+    }
+    
+    .logo {
+        a {
+            color: $c-primary;
+        }
+    }
+}
+
+.show {
+    transform: translateX(0);
+}
+.hide {
+    transform: translateX(100%);
+}

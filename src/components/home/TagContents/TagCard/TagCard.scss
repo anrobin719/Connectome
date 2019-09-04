@@ -1,32 +1,82 @@
 @import '../../../../styles/lib/utils.scss';
 
-.TagCard {
-    display: flex;
-    flex: .23;
-    height: 80px;
-    border-radius: .2rem;
-    transition: all .1s ease-in-out;
-    @include material-shadow(1, 1, $oc-gray-6);
-    &:hover,
-    &:active {
-        @include material-shadow(2, 1, $oc-gray-6);        
+.paddingWrapper {
+    padding: 0 .5rem;
+    flex: 0 0 25%;
+    box-sizing: border-box;
+    .TagCard{
+        border-radius: .2rem;
+        overflow: hidden;
+        height: 80px;
+        border-radius: .2rem;
+        transition: all .1s ease-in-out;
+        @include material-shadow(1, 1, $oc-gray-6);
+        &:hover,
+        &:active {
+            @include material-shadow(2, 1, $oc-gray-6);        
+        }
+    
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            .TagImgBox {
+                width: 80px;
+                height: 100%;
+                display: inline-block;
+                span {
+                    display: none;
+                }
+            }
+            p {
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                margin-left: 1rem;
+                font-size: 1.1rem;
+                font-weight: 300;
+                color: $oc-gray-8;
+            }
+
+            
+        }
+
     }
 
-    .TagImgBox {
-        width: 80px;
-        height: 80px;
-        overflow: hidden;
-        img {
-            object-fit: cover;
+    @include media('<medium') {
+        padding: 0 .2rem;
+        .TagCard{
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                .TagImgBox {
+                    width: 100%;
+                    height: 100%;
+                    display: inline-block;
+                    position: relative;
+                    span {
+                        display: block;
+                        position: absolute;
+                        color: white;
+                        font-weight: 600;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+                p {
+                    display: none;
+                }
+            }
         }
     }
 
-    span {
-        display: flex;
-        align-items: center;
-        margin-left: 1rem;
-        font-size: 1.1rem;
-        font-weight: 300;
-        color: $oc-gray-8;
+    @include media('<small') {
+        padding: 0 .2rem .4rem;
+        flex: 0 0 50%;
     }
 }

@@ -10,9 +10,7 @@ const PostCard = ({ id, title, sub, img, publishedDate, myTalent, yourTalent }) 
         <div className={classes.paddingWrapper}>
             <div className={classes.PostCard}>
                 <Link to={`/post/${id}`}>
-                    <div className={classes.imgBox}>
-                        <CardImg img={img}/>
-                    </div>
+                    <CardImg img={img}/>
                     <div className={classes.contentBox}>
                         <span>#{myTalent}</span>
                         <span>#{yourTalent}</span>
@@ -27,8 +25,8 @@ const PostCard = ({ id, title, sub, img, publishedDate, myTalent, yourTalent }) 
 };
 
 const CardImg = styled.div`
-    width: auto;
-    height: 100%;
+    width: 100%;
+    padding-bottom: 70%;
     background: url(${props => props.img}) no-repeat center/cover;
 `;
 

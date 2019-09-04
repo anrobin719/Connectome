@@ -31,7 +31,7 @@ const NavigationItems = ({onShowModal, onLogout, isAuthenticated}) => {
                         </div>
                     </Button>
                     <div className={classes.signUpBtnBox}>
-                        <Button onClick={() => onShowModal('signUp')} theme="outline" exact>회원가입</Button>
+                        <Button onClick={() => onShowModal('signUp')} theme="outlineNav" exact>회원가입</Button>
                     </div>
                 </Fragment>
             )}

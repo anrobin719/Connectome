@@ -20,11 +20,6 @@
     
         a { 
             width: 100%;
-            .imgBox {
-                height: 200px;
-                width: 100%;
-                background-color: #eee;
-            }
             .contentBox {
                 padding: 1rem 1rem 1.6rem;
                 
@@ -50,4 +45,12 @@
             }
         }
     }
+
+    @include media('<medium') {
+        flex: 0 0 50%;
+    }
+    @include media('<small') {
+        flex: 0 0 100%;
+    }
+    
 }

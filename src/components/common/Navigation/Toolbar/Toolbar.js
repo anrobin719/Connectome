@@ -3,8 +3,9 @@ import classNames from 'classnames/bind';
 import { NavLink } from 'react-router-dom';
 
 import styles from './Toolbar.scss';
-import NavigationItems from '../Navigation/NavigationItems/NavigationItems';
+import NavigationItems from '../NavigationItems/NavigationItems';
 import SearchIcon from '@material-ui/icons/Search';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const cx = classNames.bind(styles);
 
@@ -28,7 +29,8 @@ class Toolbar extends Component {
             <header className={cx('Toolbar')}>
                 <div className={cx('content')}>
                     <NavLink activeClassName={cx('logo')} to="/">
-                        ⎈ connectome
+                        <span>⎈</span>
+                        <span> connectome</span>
                     </NavLink>
                     
                     <div className={cx('search')}>
@@ -44,8 +46,10 @@ class Toolbar extends Component {
                             />
                         </form>
                     </div>
-    
-                    <nav className={cx('navItems')}>
+                    <div className={cx('menu')} onClick={() => this.props.drawerToggleClicked()}>
+                        <MenuIcon />
+                    </div>
+                    <nav className={cx('navItems', 'desktopOnly')}>
                         <NavigationItems
                             onShowModal={onShowModal}
                             onLogout={onLogout}
