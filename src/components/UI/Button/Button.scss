@@ -126,6 +126,16 @@
             }
         }
     }
+
+    &.disabled {
+        background-color: $oc-gray-4;
+        color: $oc-gray-6;
+        cursor: default;
+        &:hover, &:active {
+            box-shadow: none;
+            background-color: $oc-gray-4;
+        }
+    }
 }
 
 // navItem theme
@@ -151,3 +161,4 @@
         border-bottom: 2px solid $c-primary;
     }
 }
+

@@ -8,8 +8,14 @@ const NavigationItems = ({onShowModal, onLogout, isAuthenticated}) => {
         <ul className={classes.NavigationItems}>
             <NavigationItem link="/list" exact>재능 교환</NavigationItem>
 
-            {isAuthenticated ? <NavigationItem link="/edit" exact>새글 작성</NavigationItem>
-            : <Button onClick={() => onShowModal('askSignIn')} theme="nav">새글 작성</Button>}
+            {isAuthenticated ? (
+                <Fragment>
+                    <NavigationItem link="/edit" exact>새글 작성</NavigationItem>
+                    <NavigationItem link="/mypage" exact>마이 페이지</NavigationItem>
+                </Fragment>
+            ) : (
+                <Button onClick={() => onShowModal('askSignIn')} theme="nav">새글 작성</Button>
+            )}
 
             {isAuthenticated ? (
                 <Button onClick={onLogout} theme="nav">

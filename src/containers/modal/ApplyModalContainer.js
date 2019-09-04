@@ -7,9 +7,13 @@ import * as actions from '../../store/actions/index';
 
 class ApplyModalContainer extends Component {
     applySubmit = () => {
+        const { title } = this.props.post.toJS();
+        const { location, onApplyExchange, userId, authorId, userEmail } = this.props;
+        let postId = location.pathname.substr(6);
+        onApplyExchange(postId, userId, authorId, title, userEmail);
+
         this.cancelHandler();
         // 신청시 신청완료 확인 문구 삽입 예정
-        console.log('apply modal success!');
     }
 
     cancelHandler = () => {
@@ -35,12 +39,16 @@ class ApplyModalContainer extends Component {
 const mapStateToProps = state => {
     return {
         post: state.post.get('post'),
-        show: state.base.getIn(['modal', 'apply'])
+        show: state.base.getIn(['modal', 'apply']),
+        userId: state.auth.userId,
+        userEmail: state.auth.email,
+        authorId: state.post.getIn(['post', 'authorId']),
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onCancel: (modalName) => dispatch(actions.hideModal(modalName))
+        onCancel: (modalName) => dispatch(actions.hideModal(modalName)),
+        onApplyExchange: (postId, userId, authorId, title, userEmail) => dispatch(actions.applyExchange(postId, userId, authorId, title, userEmail))
     }
 }
 

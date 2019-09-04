@@ -12,8 +12,7 @@ const initialState = {
 
 const authStart = ( state, action ) => {
     return {
-        loading: true,
-        error: false
+        loading: true
     }
 }
 const authSuccess = ( state, action ) => {
@@ -21,8 +20,7 @@ const authSuccess = ( state, action ) => {
         token: action.token,
         userId: action.userId,
         email: action.email,
-        loading: false,
-        error: false
+        loading: false
     });
     // const newState = state.set('token', action.token).set('userId', action.userId).set('email', action.email).set('loading', false).set('error', false);
     // return newState;

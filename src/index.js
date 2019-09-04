@@ -14,6 +14,7 @@ import postReducer from './store/reducers/post';
 import listReducer from './store/reducers/list';
 import baseReducer from './store/reducers/base';
 import authReducer from './store/reducers/auth';
+import mypageReducer from './store/reducers/mypage';
 
 
 const rootReducer = combineReducers({
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     post: postReducer,
     list: listReducer,
     base: baseReducer,
-    auth: authReducer
+    auth: authReducer,
+    mypage: mypageReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
