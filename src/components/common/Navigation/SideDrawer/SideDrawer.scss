@@ -13,7 +13,7 @@
     box-sizing: border-box;
     transition: transform 0.3s ease-out;
 
-    @include media('>medium') {
+    @include media('>=medium') {
         display: none;
     }
     

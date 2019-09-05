@@ -114,7 +114,7 @@
 
             .bodyBox {
                 width: 100%;
-                padding-bottom: 16rem;
+                padding-bottom: 18rem;
             }
 
             // control buttons: edit, delete post function + published date
@@ -181,6 +181,9 @@
         }
         @include media('<small') {
             .bodyContent {
+                .bodyBox {
+                    padding-bottom: 16rem;
+                }
                 .ctrBox {
                     p {
                         display: none;

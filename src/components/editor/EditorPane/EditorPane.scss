@@ -1,8 +1,11 @@
+@import '../../../styles/lib/utils.scss';
+
 .EditorPane {
-    padding: 3rem 0;
+    padding: 3rem;
     box-sizing: border-box;
     font-weight: 300;
     color: #2c2c2c;
+    // input 공통 설정
     input {
         margin: 0;
         padding-left: 1rem;
@@ -14,6 +17,7 @@
         color: #2c2c2c;
     }
 
+    // 타이틀 입력 박스
     .titleBox {
         width: 100%;
         input {
@@ -25,6 +29,8 @@
             }
         }
     }
+
+    // 소개 입력 박스
     .subBox {
         margin-top: 1rem;
         width: 100%;
@@ -37,9 +43,8 @@
             }
         }
     }
-    .bodyBox {
-        margin: 3rem 0;
-    }
+    
+    // 재능 입력 박스
     .tagsBox {
         margin-top: .6rem;
         width: 100%;
@@ -55,23 +60,79 @@
             }
         }
     }
+
+    // 본문 입력 박스
+    .bodyBox {
+        margin: 3rem 0;
+    }
+
+    // 사진 업로드 박스
     .imgBox {
-        .imgContainer {
+        display: block;
+        position: relative;
+        > div {
+            position: relative;
+            top: 0;
+            left: 50%;
             width: 50%;
-            height: 240px;
-            background-color: #eaeaea;
-            overflow: hidden;
-            img {
-                object-fit: cover;
+            > div {
+                margin-bottom: .6rem;
+                display: flex;
+                align-items: center;
+                h4 {
+                    display: inline-block;
+                    margin-right: .6rem;
+                }
+                button {
+                    border: 1px solid $oc-gray-4;
+                    padding: .4rem .8rem .3rem;
+                    box-sizing: border-box;
+                    color: $oc-gray-6;
+                    font-size: .8rem;
+                }
             }
+            .imgContainer {
+                width: 100%;
+                padding-bottom: 60%;
+                background-color: #eaeaea;
+                overflow: hidden;
+                img {
+                    object-fit: cover;
+                }
+            }
+
         }
     }
+
+    // submit 버튼 박스
     .btnBox {
         display: flex;
         justify-content: center;
-        margin: 3rem 0 12rem;
+        margin: 6rem 0 12rem;
         button {
             outline: none;
+        }
+    }
+
+    @include media('<large') {
+        padding: 3rem 0rem;
+    }
+
+    @include media('<medium') {
+        .imgBox {
+            > div {
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
+    @include media('<small') {
+        padding: 3rem 0rem;
+        .imgBox > div > div button {
+            background-color: #fff;
+        }
+        .btnBox {
+            margin: 4rem 0 8rem;
         }
     }
 }

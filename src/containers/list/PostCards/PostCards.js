@@ -39,9 +39,6 @@ class PostCards extends Component {
 
     render() {
         const { posts, filteredPosts, loading, search, tag1, tag2 } = this.props;
-        
-        if(loading) return <Loading />;
-
 
         let postCards = posts.map(post => {
                     const { id, title, sub, img, myTalent, yourTalent, publishedDate } = post.toJS();
@@ -57,7 +54,7 @@ class PostCards extends Component {
                             yourTalent={yourTalent}
                         />
                     );
-                });
+                });        
         
         // param이 바뀌고, 필터된 포스트가 있을 때
         if ((search || tag1 || tag2) && filteredPosts.size !== 0) {
@@ -77,9 +74,10 @@ class PostCards extends Component {
                 );
             });
         }
-            
-            
-        
+
+        if(loading) {
+            postCards = <Loading extraClass="fit"/>;   
+        }        
 
         return (
             <Fragment>

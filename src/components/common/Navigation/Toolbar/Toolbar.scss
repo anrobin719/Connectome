@@ -86,7 +86,7 @@
             svg {
                 font-size: 2rem;
             }
-            @include media('>medium') {
+            @include media('>=medium') {
                 display: none;
             }
         }

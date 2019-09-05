@@ -13,7 +13,7 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
     return (
         <div className={classes.Post}>
             <section className={classes.postHead}>
-                {/* 사진 영역 */}
+                {/* 사진 영역 : 사진은 styled-component */}
                 <div className={classes.headImg}>
                     <CardImg img={img} className={classes.headImg}/>
                 </div>

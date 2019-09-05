@@ -1,0 +1,71 @@
+@import '../../../styles/lib/utils.scss';
+
+// 전체 배너
+.banner {
+    height: calc(100vh - 64px);
+    width: 100%;
+    background-color: $c-primary-dark;
+
+    // flex 부모용 박스
+    .contentsBox {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        // outline: 1px solid red;
+
+        // 컨텐츠 : 텍스트 + 버튼
+        .contents {
+            width: 100%;
+            font-size: 1.6rem;
+            font-weight: 300;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 3rem;
+            // outline: 1px solid cyan;
+
+            // 에러 문구
+            h2 {
+                font-family: 'Lexend Deca', sans-serif;
+                font-size: 4rem;
+                margin-bottom: .3rem;
+                color: white;
+                // outline: 1px solid red;
+            }
+            p {
+                color: white;
+                // outline: 1px solid red;
+            }
+
+            // 홈으로 돌아가기 버튼
+            .btnBox {
+                display: inline-block;
+                position: absolute;
+                right: 0;
+                bottom: .1rem;
+            }
+
+            @include media('<large') {
+                padding-left: 6rem;
+                .btnBox {
+                    position: static;
+                    margin-top: 3rem;
+                }
+            }
+            @include media('<medium') {
+                padding-left: 2rem;
+                h2 {
+                    font-size: 3rem;
+                }
+                p {
+                    font-size: 1.2rem;
+                }
+                .btnBox {
+                    margin-top: 2rem;
+                }
+            }
+            @include media('<small') {
+                padding-left: 0;
+            }
+        }
+    }
+}

@@ -7,13 +7,16 @@
         height: 100%;
         border-bottom: 1px solid $oc-gray-4;
 
+        // 배너 검색창 + 검색 버튼 박스
         .searchBoxForm {
-            position: relative;
-            top: 5rem;
+            position: static;
+            padding-top: 5rem;
             
+            // 배너 검색창
             .inputBox {
                 display: flex;
-                flex: 1;           
+                flex: 1;
+                // 재능 input 공통        
                 .input {
                     display: flex;
                     flex-direction: column;
@@ -38,6 +41,7 @@
                         }
                     }
                 }
+                // switch button
                 .betweenInput {
                     display: flex;
                     flex-direction: column;
@@ -68,6 +72,7 @@
                         }
                     }
                 }
+                // 재능 input, switch button 공통
                 .input,
                 .betweenInput {
                     label {
@@ -79,6 +84,7 @@
                 }
             }
 
+            // 재능 검색 버튼
             .btnBox {
                 display: flex;
                 justify-content: flex-end;
@@ -91,7 +97,38 @@
                     margin-top: .1rem;
                 }
             }
-
+        }
+    }
+    @include media('<medium') {
+        height: auto;
+        .searchBox {
+            .searchBoxForm {
+                .inputBox {
+                    flex-flow: column wrap;
+                    .input {
+                        flex: 0 0 100%;
+                        margin-bottom: 2rem;
+                    }
+                    .betweenInput {
+                        display: none;
+                    }
+                }
+                .btnBox {
+                    margin-top: 0rem;
+                    margin-bottom: 5rem;
+                }
+            }
+        }
+    }
+    @include media('<small') {
+        height: auto;
+        .searchBox {
+            .searchBoxForm {
+                padding-top: 3rem;
+                .btnBox {
+                    margin-bottom: 3rem;
+                }
+            }
         }
     }
 }
