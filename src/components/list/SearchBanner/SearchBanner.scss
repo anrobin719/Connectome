@@ -2,7 +2,7 @@
 
 .SearchBanner {
     height: 260px;
-    
+
     .searchBox {
         height: 100%;
         border-bottom: 1px solid $oc-gray-4;
@@ -11,40 +11,42 @@
         .searchBoxForm {
             position: static;
             padding-top: 5rem;
-            
+
             // 배너 검색창
             .inputBox {
                 display: flex;
                 flex: 1;
+
                 // 재능 input 공통        
                 .input {
                     display: flex;
                     flex-direction: column;
                     flex: .5;
-                    input {
+
+                    select {
                         height: 3rem;
                         width: 100%;
                         margin: 0;
-                        padding: 0;
-                        padding-left: 1rem;
+                        padding: .8em .5em;
+                        color: $oc-gray-7;
                         box-sizing: border-box;
                         font-size: 1rem;
                         font-weight: 300;
                         border: 1px solid $oc-gray-2;
-                        &::placeholder {
-                            font-size: 1rem;
-                            font-weight: 300;
-                            color: $oc-gray-6;
-                        }
+                        background: white;
+                        border-radius: 0px;
+
                         &:focus {
                             outline: none;
                         }
                     }
                 }
+
                 // switch button
                 .betweenInput {
                     display: flex;
                     flex-direction: column;
+
                     .switchBtn {
                         display: flex;
                         justify-content: center;
@@ -52,6 +54,7 @@
                         border: 1px solid $oc-gray-2;
                         height: 3rem;
                         box-sizing: border-box;
+
                         button {
                             padding: 0;
                             margin: 0;
@@ -72,6 +75,7 @@
                         }
                     }
                 }
+
                 // 재능 input, switch button 공통
                 .input,
                 .betweenInput {
@@ -89,6 +93,7 @@
                 display: flex;
                 justify-content: flex-end;
                 margin-top: 1rem;
+
                 .searchIcon {
                     display: flex;
                     justify-content: center;
@@ -99,20 +104,25 @@
             }
         }
     }
+
     @include media('<medium') {
         height: auto;
+
         .searchBox {
             .searchBoxForm {
                 .inputBox {
                     flex-flow: column wrap;
+
                     .input {
                         flex: 0 0 100%;
                         margin-bottom: 2rem;
                     }
+
                     .betweenInput {
                         display: none;
                     }
                 }
+
                 .btnBox {
                     margin-top: 0rem;
                     margin-bottom: 5rem;
@@ -120,11 +130,14 @@
             }
         }
     }
+
     @include media('<small') {
         height: auto;
+
         .searchBox {
             .searchBoxForm {
                 padding-top: 3rem;
+
                 .btnBox {
                     margin-bottom: 3rem;
                 }
