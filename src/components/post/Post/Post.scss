@@ -41,13 +41,8 @@
 
     // 첫번째 행
     .postHead {
-        .headImg {
-            // width: 100%;
-        }
         .headContent {
-            // width: 100%;
             position: relative;
-            // outline: 1px solid cyan;
             border-top: 3px solid $c-primary;
                 
             .headContentTitleBox {
@@ -123,15 +118,12 @@
                 display: inline-block;
                 position: absolute;
                 bottom: 4rem;
-                // transform: translateY(100%);
                 right: 0;
-
                 p {
                     color: $oc-gray-4;
                     font-size: .8rem;
                     font-weight: 400;
                 }
-
                 div {
                     display: inline-block;
                     margin-bottom: .3rem;
@@ -139,6 +131,7 @@
                     color: $oc-gray-6;
                     button {
                         color: $oc-gray-6;
+                        border: none;
                     }
                 }
             }

@@ -11,10 +11,12 @@
     font-size: .8rem;
     cursor: pointer;
     user-select: none;
+
     a {
         height: 100%;
         padding-top: 22px;
         box-sizing: border-box;
+
         &:hover,
         &:active,
         &.active {
@@ -29,6 +31,7 @@
         height: 3rem;
         line-height: 3rem;
         box-sizing: border-box;
+
         a {
             font-size: 1rem;
             font-weight: 300;
@@ -37,6 +40,7 @@
             width: 100%;
             padding: 0;
             transition: all .2s linear;
+
             &:hover,
             &:active,
             &.active {

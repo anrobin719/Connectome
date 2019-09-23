@@ -6,6 +6,7 @@
     position: relative;
     margin-bottom: 3rem;
     padding: .3rem 0;
+
     .HomePostCards {
         display: flex;
         flex-flow: row wrap;
@@ -13,11 +14,6 @@
     }
 
     @include media('<medium') {
-        height: 390px;
-        overflow: hidden;
-    }
-    @include media('<small') {
-        overflow: visible;
         height: auto;
     }
 }

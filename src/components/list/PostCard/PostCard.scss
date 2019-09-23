@@ -11,46 +11,78 @@
         font-weight: 300;
         border-radius: .2rem;
         overflow: hidden;
-        @include material-shadow(1,1,$oc-gray-6);
+        @include material-shadow(1, 1, $oc-gray-6);
         transition: all .2s ease-in-out;
+
         &:hover,
         &:active {
-            @include material-shadow(3,1,$oc-gray-6);
+            @include material-shadow(3, 1, $oc-gray-6);
         }
-    
-        a { 
+
+        a {
             width: 100%;
+
             .contentBox {
                 padding: 1rem 1rem 1.6rem;
-                
+                background-color: white;
+
                 // tag
                 span {
                     display: inline-block;
                     margin-right: .3rem;
                     color: $c-primary;
                 }
+
                 // title
                 h4 {
                     font-size: 1rem;
                     font-weight: 700;
+                    margin-bottom: .3rem;
+                    height: 24px;
+                    overflow: hidden;
                 }
+
                 // sub title
                 h6 {
-                    margin-bottom: .3rem;
+                    margin-bottom: .6rem;
+                    height: 38px;
+                    overflow: hidden;
                 }
+
                 // published date
                 p {
-                    color: $oc-gray-6;
+                    color: $oc-gray-5;
                 }
             }
         }
     }
 
     @include media('<medium') {
-        flex: 0 0 50%;
+        flex: 0 0 100%;
+
+        .PostCard a .contentBox {
+            padding: 1.6rem 1.3rem 2.2rem;
+
+            // title
+            h4 {
+                height: auto;
+                overflow: auto;
+            }
+
+            // sub title
+            h6 {
+                height: auto;
+                overflow: auto;
+            }
+        }
     }
+
     @include media('<small') {
         flex: 0 0 100%;
+
+        .PostCard a .contentBox {
+            padding: 1rem 1rem 1.6rem;
+        }
     }
-    
+
 }
