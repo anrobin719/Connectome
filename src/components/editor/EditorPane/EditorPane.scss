@@ -5,6 +5,7 @@
     box-sizing: border-box;
     font-weight: 300;
     color: #2c2c2c;
+
     // input 공통 설정
     input {
         margin: 0;
@@ -20,10 +21,12 @@
     // 타이틀 입력 박스
     .titleBox {
         width: 100%;
+
         input {
             padding: 1rem;
             font-size: 2rem;
             border-bottom: 1px solid #eaeaea;
+
             &::placeholder {
                 color: #bbb;
             }
@@ -34,27 +37,31 @@
     .subBox {
         margin-top: 1rem;
         width: 100%;
+
         input {
             padding: .8rem 1rem;
             font-size: 1rem;
             border-bottom: 1px solid #eaeaea;
+
             &::placeholder {
                 color: #bbb;
             }
         }
     }
-    
+
     // 재능 입력 박스
     .tagsBox {
         margin-top: .6rem;
         width: 100%;
         display: flex;
         justify-content: space-between;
+
         input {
             padding: .8rem 1rem;
             flex: .46;
             font-size: 1rem;
             border-bottom: 1px solid #eaeaea;
+
             &::placeholder {
                 color: #bbb;
             }
@@ -70,33 +77,47 @@
     .imgBox {
         display: block;
         position: relative;
-        > div {
+
+        >div {
             position: relative;
             top: 0;
             left: 50%;
             width: 50%;
-            > div {
+
+            >div {
                 margin-bottom: .6rem;
                 display: flex;
                 align-items: center;
+
                 h4 {
                     display: inline-block;
                     margin-right: .6rem;
                 }
+
                 button {
                     border: 1px solid $oc-gray-4;
                     padding: .4rem .8rem .3rem;
                     box-sizing: border-box;
                     color: $oc-gray-6;
                     font-size: .8rem;
+                    cursor: pointer;
                 }
             }
+
             .imgContainer {
                 width: 100%;
                 padding-bottom: 60%;
+                box-sizing: border-box;
                 background-color: #eaeaea;
                 overflow: hidden;
+                position: relative;
+
                 img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
                     object-fit: cover;
                 }
             }
@@ -109,6 +130,7 @@
         display: flex;
         justify-content: center;
         margin: 6rem 0 12rem;
+
         button {
             outline: none;
         }
@@ -120,17 +142,20 @@
 
     @include media('<medium') {
         .imgBox {
-            > div {
+            >div {
                 left: 0;
                 width: 100%;
             }
         }
     }
+
     @include media('<small') {
         padding: 3rem 0rem;
-        .imgBox > div > div button {
+
+        .imgBox>div>div button {
             background-color: #fff;
         }
+
         .btnBox {
             margin: 4rem 0 8rem;
         }
