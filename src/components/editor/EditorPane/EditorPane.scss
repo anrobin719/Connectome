@@ -4,7 +4,7 @@
     padding: 3rem;
     box-sizing: border-box;
     font-weight: 300;
-    color: #2c2c2c;
+    color: $oc-gray-8;
 
     // input 공통 설정
     input {
@@ -15,7 +15,7 @@
         border: none;
         outline: none;
         font-weight: 400;
-        color: #2c2c2c;
+        color: $oc-gray-8;
     }
 
     // 타이틀 입력 박스
@@ -56,14 +56,17 @@
         display: flex;
         justify-content: space-between;
 
-        input {
+        select {
+            appearance: none;
+            background-color: white;
             padding: .8rem 1rem;
             flex: .46;
             font-size: 1rem;
+            border: none;
             border-bottom: 1px solid #eaeaea;
 
-            &::placeholder {
-                color: #bbb;
+            &:focus {
+                outline: none;
             }
         }
     }

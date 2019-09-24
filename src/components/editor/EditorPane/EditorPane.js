@@ -8,6 +8,7 @@ class EditorPane extends Component {
   inputChangedHandler = e => {
     const { changeInput } = this.props;
     const { name, value } = e.target;
+    console.log("clicked", name, value);
     changeInput({ name, value });
   };
 
@@ -72,31 +73,40 @@ class EditorPane extends Component {
             />
           </div>
 
-          {/* <input list="browsers" name="browser"/>
-                    <datalist id="browsers">
-                        <option value="Internet Explorer"/>
-                        <option value="Firefox"/>
-                        <option value="Chrome"/>
-                        <option value="Opera"/>
-                        <option value="Safari"/>
-                    </datalist> */}
-
           {/* 재능 입력 박스 */}
           <div className={classes.tagsBox}>
-            <input
-              type="text"
-              name="myTalent"
+            <select
               value={myTalent}
-              placeholder="교환할 내 재능"
+              name="myTalent"
               onChange={this.inputChangedHandler}
-            />
-            <input
-              type="text"
+              style={myTalent ? { color: "#343a40" } : { color: "#bbb" }}
+            >
+              <option selected>교환할 내 재능</option>
+              <option checked value="개발">
+                개발
+              </option>
+              <option value="디자인">디자인</option>
+              <option value="음악">음악</option>
+              <option value="요리">요리</option>
+              <option value="언어">언어</option>
+              <option value="스타트업">스타트업</option>
+              <option value="기타">기타</option>
+            </select>
+            <select
               name="yourTalent"
               value={yourTalent}
-              placeholder="교환하기 원하는 재능"
               onChange={this.inputChangedHandler}
-            />
+              style={yourTalent ? { color: "#343a40" } : { color: "#bbb" }}
+            >
+              <option selected>교환하기 원하는 재능</option>
+              <option value="개발">개발</option>
+              <option value="디자인">디자인</option>
+              <option value="음악">음악</option>
+              <option value="요리">요리</option>
+              <option value="언어">언어</option>
+              <option value="스타트업">스타트업</option>
+              <option value="기타">기타</option>
+            </select>
           </div>
 
           {/* 본문 입력 박스 */}
@@ -126,8 +136,8 @@ class EditorPane extends Component {
               <div className={classes.imgContainer}>
                 <img
                   ref={ref => (this.refImg = ref)}
-                  alt="seleted_image"
-                  src={img}
+                  alt={img ? "seleted_image" : null}
+                  src={img ? img : null}
                   align="middle"
                   width="100%"
                   height="100%"
