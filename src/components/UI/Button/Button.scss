@@ -26,11 +26,13 @@
         font-weight: 600;
         font-size: .8rem;
         padding: .25rem .5rem .35rem;
+
         &:hover,
         &:active {
             background-color: $c-primary;
             color: white;
         }
+
         &-big {
             border: 1px solid $c-primary;
             border-radius: .2rem;
@@ -45,11 +47,13 @@
         border: 1px solid white;
         border-radius: .16rem;
         color: white;
+
         &:hover,
         &:active {
             background-color: transparent;
             color: white;
         }
+
         &-big {
             border: 1px solid white;
             border-radius: .2rem;
@@ -69,6 +73,7 @@
         border-radius: .16rem;
         color: white;
         padding: .4rem 1rem;
+
         &:hover,
         &:active {
             background-color: $c-primary-light;
@@ -83,6 +88,7 @@
             border-radius: .16rem;
             color: white;
             padding: .6rem 1rem;
+
             &:hover,
             &:active {
                 background-color: $c-primary-light;
@@ -96,6 +102,7 @@
             font-size: 1rem;
             font-weight: 400;
             padding: .8rem 2rem;
+
             &:hover,
             &:active {
                 background-color: $c-primary-light;
@@ -109,6 +116,7 @@
         border-radius: .16rem;
         color: white;
         padding: .6rem 1rem;
+
         &:hover,
         &:active {
             background-color: $c-secondary-light;
@@ -121,6 +129,7 @@
             font-size: 1rem;
             font-weight: 400;
             padding: .8rem 2rem;
+
             &:hover,
             &:active {
                 background-color: $c-secondary-light;
@@ -132,7 +141,9 @@
         background-color: $oc-gray-4;
         color: $oc-gray-6;
         cursor: default;
-        &:hover, &:active {
+
+        &:hover,
+        &:active {
             box-shadow: none;
             background-color: $oc-gray-4;
         }
@@ -140,43 +151,54 @@
 }
 
 // navItem theme
-.nav {
-    font-family: $f-ko-sans;
-    padding: 0;
+li {
     display: flex;
+    align-items: center;
     height: 100%;
     margin: 0 4px;
     padding: 0 .5rem;
-    font-weight: 600;
-    font-size: .8rem;
-    color: $c-primary;
-    transition: none;
-    outline: none;
-    div {
+    cursor: pointer;
+    user-select: none;
+
+    .nav {
+        margin: 0;
+        padding: 0;
+        padding-top: 2px;
+        font-family: $f-ko-sans;
+        font-weight: 600;
+        font-size: .8rem;
         height: 100%;
         box-sizing: border-box;
-    }
-    &:hover,
-    &:active {
-        color: $c-primary;
-        border-bottom: 2px solid $c-primary;
-    }
-
-    @include media('<medium') {
-        font-size: 1rem;
-        font-weight: 300;
+        border-bottom: 2px solid rgba(255, 255, 255, 0);
         display: block;
-        color: $oc-gray-8;
-        text-align: left;
-        width: 100%;
-        height: 3rem;
-        line-height: 3rem;
-        box-sizing: border-box;
-        transition: all .2s linear;
+        border-radius: 0px;
+        transition: none;
+
         &:hover,
         &:active {
             color: $c-primary;
+            border-bottom: 2px solid $c-primary;
+        }
+
+        @include media('<medium') {
+            font-size: 1rem;
+            font-weight: 300;
+            display: block;
+            padding-top: 0px;
+            color: $oc-gray-8;
+            text-align: left;
+            width: 100%;
+            height: 3rem;
+            line-height: 3rem;
+            box-sizing: border-box;
+            transition: all .2s linear;
             border-bottom: none;
+
+            &:hover,
+            &:active {
+                color: $c-primary;
+                border-bottom: none;
+            }
         }
     }
 }
@@ -187,11 +209,13 @@
     font-weight: 600;
     font-size: .8rem;
     padding: .25rem .5rem .35rem;
+
     &:hover,
     &:active {
         color: white;
         background-color: $c-primary;
     }
+
     @include media('<medium') {
         margin: 0 4px;
         padding: 0 .5rem;
@@ -206,6 +230,7 @@
         line-height: 3rem;
         box-sizing: border-box;
         transition: all .2s linear;
+
         &:hover,
         &:active {
             color: $c-primary;

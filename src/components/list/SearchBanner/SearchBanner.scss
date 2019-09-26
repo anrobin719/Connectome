@@ -24,17 +24,16 @@
                     flex: .5;
 
                     select {
+                        appearance: none;
                         height: 3rem;
                         width: 100%;
-                        margin: 0;
-                        padding: .8em .5em;
-                        color: $oc-gray-7;
+                        padding: .8em 1em;
                         box-sizing: border-box;
+                        border: 1px solid $oc-gray-2;
+                        border-radius: 0px;
+                        background: white;
                         font-size: 1rem;
                         font-weight: 300;
-                        border: 1px solid $oc-gray-2;
-                        background: white;
-                        border-radius: 0px;
 
                         &:focus {
                             outline: none;
@@ -83,7 +82,7 @@
                         font-size: .8rem;
                         font-weight: 600;
                         padding-left: 1rem;
-                        margin-bottom: .3rem;
+                        margin-bottom: .6rem;
                     }
                 }
             }

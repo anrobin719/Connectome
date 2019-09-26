@@ -55,6 +55,11 @@ class SearchBanner extends Component {
                       value={this.state.myTalent}
                       name="myTalent"
                       onChange={e => this.onChangeHandler(e)}
+                      style={
+                        this.state.myTalent
+                          ? { color: "#222" }
+                          : { color: "#bbb" }
+                      }
                     >
                       <option selected>교환할 당신의 재능을 선택하세요.</option>
                       <option value="개발">개발</option>
@@ -85,6 +90,11 @@ class SearchBanner extends Component {
                       value={this.state.yourTalent}
                       name="yourTalent"
                       onChange={e => this.onChangeHandler(e)}
+                      style={
+                        this.state.yourTalent
+                          ? { color: "#222" }
+                          : { color: "#bbb" }
+                      }
                     >
                       <option selected>
                         교환 받기 원하는 재능을 선택하세요.

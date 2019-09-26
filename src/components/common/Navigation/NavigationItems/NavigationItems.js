@@ -18,21 +18,17 @@ const NavigationItems = ({ onShowModal, onLogout, isAuthenticated }) => {
           <NavigationItem link="/mypage" exact>
             마이 페이지
           </NavigationItem>
+          <Button onClick={onLogout} theme="nav">
+            로그아웃
+          </Button>
         </Fragment>
       ) : (
-        <Button onClick={() => onShowModal("askSignIn")} theme="nav">
-          새글 작성
-        </Button>
-      )}
-
-      {isAuthenticated ? (
-        <Button onClick={onLogout} theme="nav">
-          <div>로그아웃</div>
-        </Button>
-      ) : (
         <Fragment>
+          <Button onClick={() => onShowModal("askSignIn")} theme="nav">
+            새글 작성
+          </Button>
           <Button onClick={() => onShowModal("signIn")} theme="nav">
-            <div>로그인</div>
+            로그인
           </Button>
           <div className={classes.signUpBtnBox}>
             <Button
