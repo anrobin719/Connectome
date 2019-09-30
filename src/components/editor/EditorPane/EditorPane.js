@@ -81,7 +81,7 @@ class EditorPane extends Component {
               onChange={this.inputChangedHandler}
               style={myTalent ? { color: "#343a40" } : { color: "#bbb" }}
             >
-              <option selected>교환할 내 재능</option>
+              <option defaultValue>교환할 내 재능</option>
               <option checked value="개발">
                 개발
               </option>
@@ -98,7 +98,7 @@ class EditorPane extends Component {
               onChange={this.inputChangedHandler}
               style={yourTalent ? { color: "#343a40" } : { color: "#bbb" }}
             >
-              <option selected>교환하기 원하는 재능</option>
+              <option defaultValue>교환하기 원하는 재능</option>
               <option value="개발">개발</option>
               <option value="디자인">디자인</option>
               <option value="음악">음악</option>

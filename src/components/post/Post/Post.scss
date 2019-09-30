@@ -20,19 +20,22 @@
         .bodyInfo {
             flex: 0 0 26%;
         }
-        
+
         @include media('<large') {
+
             // 왼쪽 열
             .headImg,
             .bodyContent {
                 flex: 0 0 62%;
             }
+
             // 오른쪽 열
             .headContent,
             .bodyInfo {
                 flex: 0 0 36%;
             }
         }
+
         @include media('<medium') {
             display: block;
         }
@@ -44,18 +47,21 @@
         .headContent {
             position: relative;
             border-top: 3px solid $c-primary;
-                
+
             .headContentTitleBox {
                 padding: 0 .5rem;
+
                 h2 {
                     font-size: 1.4rem;
                     font-weight: 600;
                     margin: 2rem 0 1rem;
                 }
+
                 p {
                     font-weight: 300;
                 }
             }
+
             // button
             .headContentBtnBox {
                 width: 100%;
@@ -63,16 +69,20 @@
                 bottom: 0;
             }
         }
+
         @include media('<medium') {
             .headContent {
                 position: static;
                 border: none;
+
                 .headContentTitleBox {
                     padding: 0 .5rem;
+
                     h2 {
                         font-size: 1.6rem;
                     }
                 }
+
                 // button
                 .headContentBtnBox {
                     position: static;
@@ -80,7 +90,7 @@
                 }
             }
         }
-        
+
     }
 
 
@@ -90,7 +100,7 @@
         padding-top: 2rem;
         padding-bottom: 12rem;
         box-sizing: border-box;
-        
+
         .bodyContent {
             height: auto;
             position: relative;
@@ -100,6 +110,7 @@
                 font-weight: 600;
                 margin-bottom: .3rem;
             }
+
             .talentBox {
                 color: $oc-gray-6;
                 font-weight: 500;
@@ -119,19 +130,23 @@
                 position: absolute;
                 bottom: 4rem;
                 right: 0;
+
                 p {
                     color: $oc-gray-4;
                     font-size: .8rem;
                     font-weight: 400;
                 }
+
                 div {
                     display: inline-block;
                     margin-bottom: .3rem;
-                    margin-left: .3rem; 
+                    margin-left: .3rem;
                     color: $oc-gray-6;
+
                     button {
                         color: $oc-gray-6;
                         border: none;
+                        cursor: pointer;
                     }
                 }
             }
@@ -144,10 +159,12 @@
                 transform: translateX(-50%);
             }
         }
+
         .bodyInfo {
             .bodyInfoContentBox {
                 padding: 3.6rem 1rem;
                 background-color: $oc-gray-1;
+
                 p {
                     font-size: .8rem;
                     font-weight: 300;
@@ -155,28 +172,33 @@
                 }
             }
         }
+
         @include media('<medium') {
             .bodyContent {
                 h2 {
                     display: none;
                 }
+
                 .ctrBox {
                     .bodyContentBtnBox {
                         position: static;
                     }
                 }
             }
+
             .bodyInfo {
                 .bodyInfoContentBox {
                     margin-top: 4rem;
                 }
             }
         }
+
         @include media('<small') {
             .bodyContent {
                 .bodyBox {
                     padding-bottom: 16rem;
                 }
+
                 .ctrBox {
                     p {
                         display: none;

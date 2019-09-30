@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import ReactQuill from 'react-quill'; // ES6
-import './EditorBody.css';
+import React, { Component } from "react";
+import ReactQuill from "react-quill"; // ES6
+import "./EditorBody.css";
 
 class EditorBody extends Component {
-  constructor (props) {
-    super(props)
-    this.state = { 
-      editorHtml: '',
-      theme: 'snow'
-    }
-    this.handleChange = this.handleChange.bind(this)
+  constructor(props) {
+    super(props);
+    this.state = {
+      editorHtml: "",
+      theme: "snow"
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
-  
+
   handleChange = html => {
     // this.setState({ editorHtml: html });
-    this.props.htmlChangedHandler({name: 'body', value: html});
-  }
-  
-  render () {
+    this.props.htmlChangedHandler({ name: "body", value: html });
+  };
+
+  render() {
     return (
       <div className="EditorBody">
-        <ReactQuill 
+        <ReactQuill
           theme={this.state.theme}
           onChange={this.handleChange}
           value={this.props.body}
@@ -29,29 +29,42 @@ class EditorBody extends Component {
           placeholder={this.props.placeholder}
         />
       </div>
-    )
+    );
   }
 }
 
 EditorBody.modules = {
   toolbar: [
-    [{'font': []}],
-    [{'size': []}],
-    [{'color': []}, {'background': []}],
-    ['bold', 'italic', 'underline', 'strike'],
-    [{'list': 'ordered'}, {'list': 'bullet'}, 
-      {'indent': '-1'}, {'indent': '+1'},
-      {'align': []}
+    [{ font: [] }],
+    [{ size: [] }],
+    [{ color: [] }, { background: [] }],
+    ["bold", "italic", "underline", "strike"],
+    [
+      { list: "ordered" },
+      { list: "bullet" },
+      { indent: "-1" },
+      { indent: "+1" },
+      { align: [] }
     ],
-    ['link', 'image']
+    ["link"]
   ]
-}
+};
 
 EditorBody.formats = [
-  'header', 'font', 'size', 'color', 'background',
-  'bold', 'italic', 'underline', 'strike',
-  'list', 'bullet', 'indent', 'align',
-  'link', 'image'
-]
+  "header",
+  "font",
+  "size",
+  "color",
+  "background",
+  "bold",
+  "italic",
+  "underline",
+  "strike",
+  "list",
+  "bullet",
+  "indent",
+  "align",
+  "link"
+];
 
 export default EditorBody;

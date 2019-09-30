@@ -61,7 +61,9 @@ class SearchBanner extends Component {
                           : { color: "#bbb" }
                       }
                     >
-                      <option selected>교환할 당신의 재능을 선택하세요.</option>
+                      <option defaultValue>
+                        교환할 당신의 재능을 선택하세요.
+                      </option>
                       <option value="개발">개발</option>
                       <option value="디자인">디자인</option>
                       <option value="음악">음악</option>
@@ -96,7 +98,7 @@ class SearchBanner extends Component {
                           : { color: "#bbb" }
                       }
                     >
-                      <option selected>
+                      <option defaultValue>
                         교환 받기 원하는 재능을 선택하세요.
                       </option>
                       <option value="개발">개발</option>
