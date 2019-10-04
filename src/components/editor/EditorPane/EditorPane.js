@@ -27,6 +27,7 @@ class EditorPane extends Component {
       let reader = new FileReader();
       reader.onload = e => {
         this.refImg.setAttribute("src", e.target.result);
+        console.log(e.target.result);
         changeFile(name, e.target.result);
       };
       reader.readAsDataURL(e.target.files[0]);

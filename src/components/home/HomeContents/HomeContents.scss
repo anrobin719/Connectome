@@ -5,23 +5,9 @@
         font-size: 1.4rem;
         font-weight: 700;
     }
+
     .sub {
         font-weight: 300;
         margin-bottom: 1.4rem;
-    }
-
-    .about {
-        border-top: 1px solid $oc-gray-2;
-        padding: 6rem 0 12rem;
-
-
-        .aboutTitle {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1.2rem;
-        }
-        .aboutSub {
-            font-weight: 300;
-        }
     }
 }

@@ -1,7 +1,11 @@
-import * as actionTypes from "./actionTypes";
+import dotenv from "dotenv";
 import axios from "axios";
 import axiosBase from "../../axios-orders";
+import * as actionTypes from "./actionTypes";
 import * as actions from "../actions/index";
+
+dotenv.config();
+const { REACT_APP_FIREBASE_API_KEY } = process.env;
 
 export const authStart = () => {
   return {
@@ -47,12 +51,10 @@ export const auth = authForm => {
   return dispatch => {
     dispatch(authStart());
     // 로그인 url
-    let url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAuLYNMQ89vowAXVO5RfXwQAzjEFUWIyH4";
+    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${REACT_APP_FIREBASE_API_KEY}`;
     // 회원가입 url
     if (authForm.isSignUp) {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAuLYNMQ89vowAXVO5RfXwQAzjEFUWIyH4";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${REACT_APP_FIREBASE_API_KEY}`;
     }
     const authData = {
       email: authForm.email,
