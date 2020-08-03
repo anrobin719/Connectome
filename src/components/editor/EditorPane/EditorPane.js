@@ -8,7 +8,6 @@ class EditorPane extends Component {
   inputChangedHandler = e => {
     const { changeInput } = this.props;
     const { name, value } = e.target;
-    console.log("clicked", name, value);
     changeInput({ name, value });
   };
 
@@ -18,8 +17,6 @@ class EditorPane extends Component {
   };
 
   fileSelectedHandler = e => {
-    console.log(e.target.files[0]);
-
     if (e.target.files != null || e.target.files[0] != null) {
       const { changeFile } = this.props;
       const { name } = e.target;
@@ -27,7 +24,6 @@ class EditorPane extends Component {
       let reader = new FileReader();
       reader.onload = e => {
         this.refImg.setAttribute("src", e.target.result);
-        console.log(e.target.result);
         changeFile(name, e.target.result);
       };
       reader.readAsDataURL(e.target.files[0]);
@@ -48,9 +44,7 @@ class EditorPane extends Component {
 
     return (
       <div className={classes.EditorPane}>
-        {/* 전체 form */}
         <form autoComplete="off" onSubmit={submitPost}>
-          {/* 타이틀 입력 박스 */}
           <div className={classes.titleBox}>
             <input
               type="text"
@@ -62,7 +56,6 @@ class EditorPane extends Component {
             />
           </div>
 
-          {/* 소개 입력 박스 */}
           <div className={classes.subBox}>
             <input
               type="text"
@@ -73,8 +66,7 @@ class EditorPane extends Component {
               onChange={this.inputChangedHandler}
             />
           </div>
-
-          {/* 재능 입력 박스 */}
+          
           <div className={classes.tagsBox}>
             <select
               value={myTalent}
@@ -109,16 +101,14 @@ class EditorPane extends Component {
               <option value="기타">기타</option>
             </select>
           </div>
-
-          {/* 본문 입력 박스 */}
+          
           <div className={classes.bodyBox}>
             <EditorBody
               htmlChangedHandler={this.htmlChangedHandler}
               body={body}
             />
           </div>
-
-          {/* 사진 업로드 박스 */}
+          
           <div className={classes.imgBox}>
             <div>
               <input
@@ -146,8 +136,7 @@ class EditorPane extends Component {
               </div>
             </div>
           </div>
-
-          {/* submit 버튼 박스 */}
+          
           <div className={classes.btnBox}>
             <Button theme="point-big" type="submit">
               {isEdit ? "수정" : "저장"}하기

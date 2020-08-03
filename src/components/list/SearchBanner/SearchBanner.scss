@@ -7,17 +7,14 @@
         height: 100%;
         border-bottom: 1px solid $oc-gray-4;
 
-        // 배너 검색창 + 검색 버튼 박스
         .searchBoxForm {
             position: static;
             padding-top: 5rem;
 
-            // 배너 검색창
             .inputBox {
                 display: flex;
                 flex: 1;
-
-                // 재능 input 공통        
+      
                 .input {
                     display: flex;
                     flex-direction: column;
@@ -41,7 +38,6 @@
                     }
                 }
 
-                // switch button
                 .betweenInput {
                     display: flex;
                     flex-direction: column;
@@ -75,7 +71,6 @@
                     }
                 }
 
-                // 재능 input, switch button 공통
                 .input,
                 .betweenInput {
                     label {
@@ -87,7 +82,6 @@
                 }
             }
 
-            // 재능 검색 버튼
             .btnBox {
                 display: flex;
                 justify-content: flex-end;

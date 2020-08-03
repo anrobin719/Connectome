@@ -31,7 +31,6 @@ class Layout extends Component {
   };
 
   render() {
-    console.log(this.props.location);
     const { onShowModal, onLogout, isAuthenticated } = this.props;
     return (
       <Fragment>

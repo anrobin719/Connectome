@@ -39,15 +39,12 @@ class SearchBanner extends Component {
       <div className={classes.SearchBanner}>
         <PageWrapper>
           <div className={classes.searchBox}>
-            {/* 배너 검색창 + 검색 버튼 박스 */}
             <form
               className={classes.searchBoxForm}
               onSubmit={this.submitHandler}
               autoComplete="off"
             >
-              {/* 배너 검색창 */}
               <div className={classes.inputBox}>
-                {/* 내 재능 input */}
                 <div className={classes.input}>
                   <label>내 재능</label>
                   <div>
@@ -74,7 +71,6 @@ class SearchBanner extends Component {
                     </select>
                   </div>
                 </div>
-                {/* switch button */}
                 <div className={classes.betweenInput}>
                   <label>&nbsp;</label>
                   <div
@@ -84,7 +80,6 @@ class SearchBanner extends Component {
                     <button type="button">〈 〉</button>
                   </div>
                 </div>
-                {/* 교환 재능 input */}
                 <div className={classes.input}>
                   <label>교환 재능</label>
                   <div>
@@ -112,8 +107,7 @@ class SearchBanner extends Component {
                   </div>
                 </div>
               </div>
-
-              {/* 재능 검색 버튼 */}
+              
               <div className={classes.btnBox}>
                 <Button theme="point">
                   재능 검색

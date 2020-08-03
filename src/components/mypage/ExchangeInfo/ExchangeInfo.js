@@ -31,11 +31,9 @@ const ExchangeInfo = ({ applied, received, loading, acceptHandler }) => {
     });
     
     return (
-        // 신청 내역 컨테이너
         <div className={classes.ExchangeInfo}>
 
             { loading ? <Loading extraClass="fit"/> : (
-                // 컨텐츠 박스
                 <div className={classes.contentBox}>
                     <h2>내가 신청한 재능</h2>
                     <section className={classes.listBox}>

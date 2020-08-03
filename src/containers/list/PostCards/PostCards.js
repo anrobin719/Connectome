@@ -80,7 +80,6 @@ class PostCards extends Component {
       );
     });
 
-    // param이 바뀌고, 필터된 포스트가 있을 때
     if ((search || tag1 || tag2) && filteredPosts.size !== 0) {
       postCards = filteredPosts.map(post => {
         const {

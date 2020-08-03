@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ReactQuill from "react-quill"; // ES6
+import ReactQuill from "react-quill";
 import "./EditorBody.css";
 
 class EditorBody extends Component {
@@ -13,7 +13,6 @@ class EditorBody extends Component {
   }
 
   handleChange = html => {
-    // this.setState({ editorHtml: html });
     this.props.htmlChangedHandler({ name: "body", value: html });
   };
 

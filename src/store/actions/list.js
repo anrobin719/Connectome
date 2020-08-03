@@ -71,7 +71,7 @@ export const setPostListViaTags = (myTalentValue, yourTalentValue, posts) => {
         if(posts.size === 0) {
             dispatch( getPostList() );
         }
-        // post를 가져온 후 아래 코드를 실행하도록 비동기처리
+        
         let filteredPosts = null;
         if (myTalentValue.length > 0 || yourTalentValue.length > 0) {
             filteredPosts = posts.filter(post => {

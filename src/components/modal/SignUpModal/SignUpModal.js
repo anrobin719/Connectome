@@ -97,7 +97,6 @@ class SignUpModal extends Component {
         touched: false
       })
     });
-    console.log("initializeAuthInput");
     this.setState({ controls: initControls });
   };
 

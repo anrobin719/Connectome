@@ -86,7 +86,6 @@ const editorGetPostSuccess = (state, action) => {
     yourTalent: action.postData.yourTalent,
     body: action.postData.body,
     img: action.postData.img
-    // postId: null,
   });
 };
 

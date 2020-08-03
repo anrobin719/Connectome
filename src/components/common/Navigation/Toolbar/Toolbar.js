@@ -28,13 +28,11 @@ class Toolbar extends Component {
         return (
             <header className={cx('Toolbar')}>
                 <div className={cx('content')}>
-                    {/* 로고 */}
                     <NavLink activeClassName={cx('logo')} to="/">
                         <span>⎈</span>
                         <span> connectome</span>
                     </NavLink>
                     
-                    {/* 검색창 */}
                     <div className={cx('search')}>
                         <div className={cx('searchIcon')}>
                             <SearchIcon />
@@ -49,12 +47,10 @@ class Toolbar extends Component {
                         </form>
                     </div>
 
-                    {/* 메뉴 토글버튼 */}
                     <div className={cx('menu')} onClick={() => this.props.drawerToggleClicked()}>
                         <MenuIcon />
                     </div>
-
-                    {/* 메뉴 아이템 */}
+                    
                     <nav className={cx('navItems', 'desktopOnly')}>
                         <NavigationItems
                             onShowModal={onShowModal}

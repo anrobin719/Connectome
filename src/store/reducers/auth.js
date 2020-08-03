@@ -1,6 +1,5 @@
 import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../../shared/utility";
-// import { Map } from 'immutable';
 
 const initialState = {
   token: null,
@@ -23,8 +22,6 @@ const authSuccess = (state, action) => {
     email: action.email,
     loading: false
   });
-  // const newState = state.set('token', action.token).set('userId', action.userId).set('email', action.email).set('loading', false).set('error', false);
-  // return newState;
 };
 
 const authFail = (state, action) => {

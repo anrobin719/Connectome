@@ -26,14 +26,12 @@
                 padding: 1rem 1rem 1.6rem;
                 background-color: white;
 
-                // tag
                 span {
                     display: inline-block;
                     margin-right: .3rem;
                     color: $c-primary;
                 }
 
-                // title
                 h4 {
                     font-size: 1rem;
                     font-weight: 700;
@@ -42,14 +40,12 @@
                     overflow: hidden;
                 }
 
-                // sub title
                 h6 {
                     margin-bottom: .6rem;
                     height: 38px;
                     overflow: hidden;
                 }
 
-                // published date
                 p {
                     color: $oc-gray-5;
                 }
@@ -63,13 +59,11 @@
         .PostCard a .contentBox {
             padding: 1.6rem 1.3rem 2.2rem;
 
-            // title
             h4 {
                 height: auto;
                 overflow: auto;
             }
 
-            // sub title
             h6 {
                 height: auto;
                 overflow: auto;

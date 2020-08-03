@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router-dom";
 import queryString from "query-string";
@@ -6,27 +6,27 @@ import queryString from "query-string";
 import EditorPane from "../../components/editor/EditorPane/EditorPane";
 import * as actions from "../../store/actions/index";
 
-class EditorPaneContainer extends Component {
-  componentDidMount() {
-    const { location, onInitialize, onGetPost } = this.props;
+const EditorPaneContainer = props => {
+  const { location, onInitialize, onGetPost } = props;
+  useEffect(() => {
     onInitialize();
     const { id } = queryString.parse(location.search);
     if (id) {
       onGetPost(id);
     }
-  }
+  });
 
-  changeInput = ({ name, value }) => {
-    const { onChangeInput } = this.props;
+  const changeInput = ({ name, value }) => {
+    const { onChangeInput } = props;
     onChangeInput({ name, value });
   };
 
-  changeFile = (name, file) => {
-    const { onChangeFile } = this.props;
+  const changeFile = (name, file) => {
+    const { onChangeFile } = props;
     onChangeFile(name, file);
   };
 
-  submitPostHandler = async e => {
+  const submitPostHandler = async e => {
     const {
       location,
       title,
@@ -39,7 +39,7 @@ class EditorPaneContainer extends Component {
       onSubmitPost,
       onEditPost,
       userId
-    } = this.props;
+    } = props;
     const { id } = queryString.parse(location.search);
     e.preventDefault();
     const postData = {
@@ -70,29 +70,26 @@ class EditorPaneContainer extends Component {
     }
   };
 
-  render() {
-    const { postId, title, sub, myTalent, yourTalent, body, img } = this.props;
-    const { id } = queryString.parse(this.props.location.search);
-    return (
-      <div>
-        {/* 새 포스트 작성시 생성되는 포스트 아이디가 저장되면, 그 위치로 이동 (editor state의 포스트 아이디) */}
-        {postId ? <Redirect to={`/post/${postId}`} /> : null}
-        <EditorPane
-          isEdit={id ? true : false}
-          title={title}
-          sub={sub}
-          myTalent={myTalent}
-          yourTalent={yourTalent}
-          body={body}
-          img={img}
-          changeFile={this.changeFile}
-          changeInput={this.changeInput}
-          submitPost={this.submitPostHandler}
-        />
-      </div>
-    );
-  }
-}
+  const { postId, title, sub, myTalent, yourTalent, body, img } = props;
+  const { id } = queryString.parse(props.location.search);
+  return (
+    <div>
+      {postId ? <Redirect to={`/post/${postId}`} /> : null}
+      <EditorPane
+        isEdit={id ? true : false}
+        title={title}
+        sub={sub}
+        myTalent={myTalent}
+        yourTalent={yourTalent}
+        body={body}
+        img={img}
+        changeFile={changeFile}
+        changeInput={changeInput}
+        submitPost={submitPostHandler}
+      />
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
   return {

@@ -1,6 +1,5 @@
 @import '../../../styles/lib/utils.scss';
 
-// 신청 내역 컨테이너
 .ExchangeInfo {
     position: relative;
     left: 50%;
@@ -14,7 +13,6 @@
     align-items: center;
     @include material-shadow(4,1,$oc-gray-6);
     
-    // 컨텐츠 박스
     .contentBox {
         width: 100%;
         h2 {
@@ -47,7 +45,7 @@
     @include media('<medium') {
         margin: 6rem 0;
         padding: 4rem 3rem 8rem;
-        // 컨텐츠 박스
+        
         .contentBox {
             .listBox {
                 .list {

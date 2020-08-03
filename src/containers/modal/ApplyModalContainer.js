@@ -13,7 +13,6 @@ class ApplyModalContainer extends Component {
         onApplyExchange(postId, userId, authorId, title, userEmail);
 
         this.cancelHandler();
-        // 신청시 신청완료 확인 문구 삽입 예정
     }
 
     cancelHandler = () => {

@@ -50,9 +50,7 @@ export const checkAuthTimeOut = expirationTime => {
 export const auth = authForm => {
   return dispatch => {
     dispatch(authStart());
-    // 로그인 url
     let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${REACT_APP_FIREBASE_API_KEY}`;
-    // 회원가입 url
     if (authForm.isSignUp) {
       url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${REACT_APP_FIREBASE_API_KEY}`;
     }
@@ -62,16 +60,13 @@ export const auth = authForm => {
       returnSecureToken: true
     };
 
-    // 로그인 또는 회원가입
     axios
       .post(url, authData)
       .then(res => {
-        console.log(res);
         dispatch(
           authSuccess(res.data.idToken, res.data.localId, res.data.email)
         );
-
-        // 회원가입시 user컬렉션에 userId를 key값으로 유저정보 저장
+        
         if (authForm.isSignUp) {
           const userId = res.data.localId;
           axiosBase

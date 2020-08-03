@@ -13,11 +13,9 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
     return (
         <div className={classes.Post}>
             <section className={classes.postHead}>
-                {/* 사진 영역 : 사진은 styled-component */}
                 <div className={classes.headImg}>
                     <CardImg img={img} className={classes.headImg}/>
                 </div>
-                {/* 사진 오른쪽 소개 영역 */}
                 <div className={classes.headContent}>
                     <div className={classes.headContentTitleBox}>
                         <h2>{title}</h2>
@@ -30,13 +28,11 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
             </section>
             
             <section className={classes.postBody}>
-                {/* 본문 영역 */}
                 <div className={classes.bodyContent}>
                     <h2>{title}</h2>
                     <div className={classes.talentBox}>
                         <div className={classes.talent}>보유재능 {myTalent}&nbsp; &nbsp;〉 희망재능 {yourTalent}</div>
                     </div>
-                    {/* 본문 - html 렌더링 영역 */}
                     <div className={classes.bodyBox}>
                         <PostBody body={body}/>
                     </div>
@@ -55,7 +51,6 @@ const Post = ({ title, sub, myTalent, yourTalent, body, img, publishedDate, remo
                         <Button onClick={applyHandler} theme="outline-big">재능 교환하기</Button>
                     </div>
                 </div>
-                {/* 본문 오른쪽 정보 영역 */}
                 <div className={classes.bodyInfo}>
                     <div className={classes.bodyInfoContentBox}>
                         <p>

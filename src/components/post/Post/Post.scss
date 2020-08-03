@@ -3,19 +3,16 @@
 .Post {
     padding-top: 1rem;
 
-    // head, body common style
     .postHead,
     .postBody {
         display: flex;
         justify-content: space-between;
 
-        // 왼쪽 열
         .headImg,
         .bodyContent {
             flex: 0 0 72%;
         }
 
-        // 오른쪽 열
         .headContent,
         .bodyInfo {
             flex: 0 0 26%;
@@ -23,13 +20,11 @@
 
         @include media('<large') {
 
-            // 왼쪽 열
             .headImg,
             .bodyContent {
                 flex: 0 0 62%;
             }
 
-            // 오른쪽 열
             .headContent,
             .bodyInfo {
                 flex: 0 0 36%;
@@ -41,8 +36,6 @@
         }
     }
 
-
-    // 첫번째 행
     .postHead {
         .headContent {
             position: relative;
@@ -62,7 +55,6 @@
                 }
             }
 
-            // button
             .headContentBtnBox {
                 width: 100%;
                 position: absolute;
@@ -83,7 +75,6 @@
                     }
                 }
 
-                // button
                 .headContentBtnBox {
                     position: static;
                     margin-top: 2rem;
@@ -93,8 +84,6 @@
 
     }
 
-
-    // 두번째 행
     .postBody {
         margin-top: 1rem;
         padding-top: 2rem;
@@ -123,7 +112,6 @@
                 padding-bottom: 18rem;
             }
 
-            // control buttons: edit, delete post function + published date
             .ctrBox {
                 text-align: right;
                 display: inline-block;
@@ -151,7 +139,6 @@
                 }
             }
 
-            // button
             .bodyContentBtnBox {
                 position: absolute;
                 bottom: 0;
